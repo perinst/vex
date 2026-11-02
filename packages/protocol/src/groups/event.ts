@@ -1,7 +1,7 @@
-import { Event } from "@opencode/schema/event"
-import { EventManifest } from "@opencode/schema/event-manifest"
-import { Location } from "@opencode/schema/location"
-import type { Definition } from "@opencode/schema/event"
+import { Event } from "@vex/schema/event"
+import { EventManifest } from "@vex/schema/event-manifest"
+import { Location } from "@vex/schema/location"
+import type { Definition } from "@vex/schema/event"
 import { Schema } from "effect"
 import { HttpApiEndpoint, HttpApiGroup, HttpApiSchema, OpenApi } from "effect/http-api"
 

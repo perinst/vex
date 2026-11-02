@@ -1,10 +1,10 @@
 export * as SessionProviderContext from "./provider-context.js"
 
-import { Message } from "@opencode/ai"
-import { SessionProviderContext } from "@opencode/schema/session-provider-context"
+import { Message } from "@vex/ai"
+import { SessionProviderContext } from "@vex/schema/session-provider-context"
 import { Predicate, Schema } from "effect"
 import { isDeepStrictEqual } from "node:util"
-import { Hash } from "@opencode/util/hash"
+import { Hash } from "@vex/util/hash"
 import type { SessionMessage } from "./message.js"
 import type { SessionRunnerModel } from "./runner/model.js"
 

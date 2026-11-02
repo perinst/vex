@@ -1,9 +1,9 @@
 export * as ConfigProviderPlugin from "./provider.js"
 
-import { define } from "@opencode/plugin/effect/plugin"
-import { Document, type Entry } from "@opencode/schema/config"
-import { ConfigProvider } from "@opencode/schema/config/provider"
-import { Money } from "@opencode/schema/money"
+import { define } from "@vex/plugin/effect/plugin"
+import { Document, type Entry } from "@vex/schema/config"
+import { ConfigProvider } from "@vex/schema/config/provider"
+import { Money } from "@vex/schema/money"
 import { Effect } from "effect"
 import { Config } from "../../config.js"
 import { Model } from "../../model.js"

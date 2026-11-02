@@ -1,15 +1,15 @@
-import { Bus } from "@opencode/core/bus"
-import { Config } from "@opencode/core/config"
-import { Environment, makeFiles } from "@opencode/core/environment/index"
-import { EnvironmentUnavailable } from "@opencode/core/environment/unavailable"
-import { Integration } from "@opencode/core/integration"
-import { Model } from "@opencode/core/model"
-import { Plugin } from "@opencode/core/plugin"
-import { PluginHost } from "@opencode/core/plugin/host"
-import { OllamaPlugin, make } from "@opencode/core/plugin/provider/ollama"
-import { ProviderPlugins } from "@opencode/core/plugin/provider"
-import { Provider } from "@opencode/core/provider"
-import { Document, Event, Info } from "@opencode/schema/config"
+import { Bus } from "@vex/core/bus"
+import { Config } from "@vex/core/config"
+import { Environment, makeFiles } from "@vex/core/environment/index"
+import { EnvironmentUnavailable } from "@vex/core/environment/unavailable"
+import { Integration } from "@vex/core/integration"
+import { Model } from "@vex/core/model"
+import { Plugin } from "@vex/core/plugin"
+import { PluginHost } from "@vex/core/plugin/host"
+import { OllamaPlugin, make } from "@vex/core/plugin/provider/ollama"
+import { ProviderPlugins } from "@vex/core/plugin/provider"
+import { Provider } from "@vex/core/provider"
+import { Document, Event, Info } from "@vex/schema/config"
 import { describe, expect } from "bun:test"
 import { Duration, Effect, Layer, Schema } from "effect"
 import { testEffect } from "../lib/effect"
@@ -114,7 +114,7 @@ describe("OllamaPlugin", () => {
             id: providerID,
             name: "Ollama",
             activation: "enabled",
-            package: "@opencode/ai/providers/openai-compatible",
+            package: "@vex/ai/providers/openai-compatible",
             settings: { baseURL: `${server.url.origin}/v1`, provider: "ollama", apiKey: "" },
           })
           expect(model).toMatchObject({
@@ -222,7 +222,7 @@ describe("OllamaPlugin", () => {
           yield* providers.transform((editor) => {
             editor.update(providerID, (provider) => {
               provider.name = "Ollama"
-              provider.package = "@opencode/ai/providers/openai-compatible"
+              provider.package = "@vex/ai/providers/openai-compatible"
               provider.integrationID = Integration.ID.make("ollama")
             })
             editor.models.update(providerID, Model.ID.make("static-model"), () => {})

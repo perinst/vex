@@ -1,6 +1,6 @@
 export * as AISDK from "./aisdk.js"
 
-import { makeLocationNode } from "@opencode/util/effect/app-node"
+import { makeLocationNode } from "@vex/util/effect/app-node"
 import { APICallError } from "@ai-sdk/provider"
 import type {
   JSONSchema7,
@@ -29,9 +29,9 @@ import {
   type Media,
   type ToolDefinition,
   type UsageInput,
-} from "@opencode/ai"
-import { Auth, Endpoint, RequestExecutor, type AnyRoute, type HttpMiddleware } from "@opencode/ai/route"
-import { ProviderShared } from "@opencode/ai/protocols/shared"
+} from "@vex/ai"
+import { Auth, Endpoint, RequestExecutor, type AnyRoute, type HttpMiddleware } from "@vex/ai/route"
+import { ProviderShared } from "@vex/ai/protocols/shared"
 import { Cause, Context, Effect, Layer, Option, Schema, Scope, Stream } from "effect"
 import { makeParser } from "effect/encoding/Sse"
 import { HttpClientRequest, HttpClientResponse } from "effect/http"

@@ -59,7 +59,7 @@ Vex reads `.json` files only. A theme closer to the current directory replaces a
 [CLI plugins](/build/plugins/cli) read resolved colors through `context.theme` and the active mode through `context.themeMode`. Use semantic tokens so your plugin follows the selected theme:
 
 ```tsx title="Inside a CLI plugin component"
-import { usePlugin } from "@opencode/plugin/tui"
+import { usePlugin } from "@vex/plugin/tui"
 
 function Status() {
   const context = usePlugin()

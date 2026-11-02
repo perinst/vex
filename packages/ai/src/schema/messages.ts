@@ -1,6 +1,6 @@
 import { Schema } from "effect"
-import { withStatics } from "@opencode/schema/schema"
-import { Tool } from "@opencode/schema/tool"
+import { withStatics } from "@vex/schema/schema"
+import { Tool } from "@vex/schema/tool"
 import {
   CacheHint,
   CachePolicy,

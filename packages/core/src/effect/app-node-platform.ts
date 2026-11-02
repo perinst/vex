@@ -1,9 +1,9 @@
-import { LLMClient, RequestExecutor } from "@opencode/ai/route"
+import { LLMClient, RequestExecutor } from "@vex/ai/route"
 import { Effect, Layer } from "effect"
 import { FetchHttpClient, HttpClient } from "effect/http"
 import { Socket } from "effect/socket"
-import { makeGlobalNode } from "@opencode/util/effect/app-node"
-import { httpClient } from "@opencode/util/effect/app-node-platform"
+import { makeGlobalNode } from "@vex/util/effect/app-node"
+import { httpClient } from "@vex/util/effect/app-node-platform"
 import { WebSocketConstructor } from "./websocket-constructor.js"
 
 // Bun's fetch ends a request after five quiet minutes, before provider routes' own header and chunk timeouts.

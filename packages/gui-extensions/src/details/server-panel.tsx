@@ -1,10 +1,10 @@
 import { Popover } from "@kobalte/core/popover"
-import type { PluginInfo } from "@opencode/client"
-import { Icon } from "@opencode/ui/icon"
-import { Switch } from "@opencode/ui/switch"
-import { showToast } from "@opencode/ui/toast"
-import { Tooltip } from "@opencode/ui/tooltip"
-import { getDirectory } from "@opencode/util/path"
+import type { PluginInfo } from "@vex/client"
+import { Icon } from "@vex/ui/icon"
+import { Switch } from "@vex/ui/switch"
+import { showToast } from "@vex/ui/toast"
+import { Tooltip } from "@vex/ui/tooltip"
+import { getDirectory } from "@vex/util/path"
 import { useMutation } from "@tanstack/solid-query"
 import {
   children,

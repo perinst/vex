@@ -1,5 +1,5 @@
-import { Browser } from "@opencode/plugin-browser/rpc"
-import { DialogProvider } from "@opencode/ui/context/dialog"
+import { Browser } from "@vex/plugin-browser/rpc"
+import { DialogProvider } from "@vex/ui/context/dialog"
 import {
   batch,
   createSignal,

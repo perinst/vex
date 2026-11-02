@@ -1,7 +1,7 @@
 export * as GrepTool from "./grep.js"
 
-import type { Context } from "@opencode/plugin/effect/plugin"
-import { ToolFailure } from "@opencode/ai"
+import type { Context } from "@vex/plugin/effect/plugin"
+import { ToolFailure } from "@vex/ai"
 import { Effect, Schema } from "effect"
 import path from "path"
 import { Environment } from "../../environment/index.js"

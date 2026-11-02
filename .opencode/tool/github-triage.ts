@@ -1,5 +1,5 @@
 /// <reference path="../env.d.ts" />
-import { tool } from "@opencode/plugin"
+import { tool } from "@vex/plugin"
 
 const TEAM = {
   tui: ["kommander", "simonklee"],

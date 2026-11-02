@@ -1,5 +1,5 @@
-import { define } from "@opencode/plugin/effect/plugin"
-import { Form } from "@opencode/schema/form"
+import { define } from "@vex/plugin/effect/plugin"
+import { Form } from "@vex/schema/form"
 import { Clock, Deferred, Effect, Option, Schema, Stream } from "effect"
 import { HttpClient, HttpClientRequest, HttpClientResponse } from "effect/http"
 import { App } from "../../app.js"

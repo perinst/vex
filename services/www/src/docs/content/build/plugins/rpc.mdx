@@ -10,7 +10,7 @@ called by other plugins or clients.
 Use `Rpc.define` to list the RPC's methods, errors, and events.
 
 ```ts title="src/rpc.ts"
-import { Rpc } from "@opencode/plugin/rpc"
+import { Rpc } from "@vex/plugin/rpc"
 
 export const Acme = Rpc.define({
   id: "acme",
@@ -129,7 +129,7 @@ Scalars, arrays, `null`, and `undefined` are not valid event data.
 Register the implementation inside `setup`:
 
 ```ts title="src/index.ts"
-import { Plugin } from "@opencode/plugin"
+import { Plugin } from "@vex/plugin"
 import { Acme } from "./rpc.js"
 
 export default Plugin.define({
@@ -169,7 +169,7 @@ Create a Vex client, then use `client.rpc` to create a subclient for the
 RPC:
 
 ```ts
-import { Vex } from "@opencode/client"
+import { Vex } from "@vex/client"
 import { Acme } from "opencode-acme-plugin/rpc"
 
 const client = Vex.make({
@@ -186,7 +186,7 @@ Plugins already have a Vex client. For example, a TUI plugin can create
 the same RPC subclient from `context.client`:
 
 ```ts title="src/tui.ts"
-import { Plugin } from "@opencode/plugin/tui"
+import { Plugin } from "@vex/plugin/tui"
 import { Acme } from "opencode-acme-plugin/rpc"
 
 export default Plugin.define({

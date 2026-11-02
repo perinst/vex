@@ -107,7 +107,7 @@ export default [
         },
         optimizeDeps: {
           exclude: [...workerDeps, ...officeDeps],
-          include: ["@opencode/session-ui > mermaid", "@opencode/session-ui > mermaid > katex"],
+          include: ["@vex/session-ui > mermaid", "@vex/session-ui > mermaid > katex"],
           rolldownOptions: { plugins: [bundleNestedWorkerDeps] },
         },
       }

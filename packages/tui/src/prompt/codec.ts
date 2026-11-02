@@ -1,5 +1,5 @@
-import type { Prompt, PromptInput } from "@opencode/schema"
-import { Skill } from "@opencode/schema/skill"
+import type { Prompt, PromptInput } from "@vex/schema"
+import { Skill } from "@vex/schema/skill"
 import type { Types } from "effect"
 
 export type EditablePromptInput = Types.DeepMutable<PromptInput.Prompt>

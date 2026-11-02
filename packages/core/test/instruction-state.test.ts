@@ -1,25 +1,25 @@
 import { describe, expect } from "bun:test"
 import { and, asc, eq } from "drizzle-orm"
 import { Effect, Schema } from "effect"
-import { Database } from "@opencode/core/database/database"
-import { AppNodeBuilder } from "@opencode/core/effect/app-node-builder"
-import { LayerNode } from "@opencode/util/effect/layer-node"
-import { Bus } from "@opencode/core/bus"
-import { Event } from "@opencode/schema/event"
-import { EventTable } from "@opencode/core/event/sql"
-import { Instructions } from "@opencode/core/instructions/index"
-import { Project } from "@opencode/core/project"
-import { ProjectTable } from "@opencode/core/project/sql"
-import { AbsolutePath } from "@opencode/core/schema"
-import { InstructionState } from "@opencode/core/session/instruction-state"
-import { SessionProjector } from "@opencode/core/session/projector"
-import { SessionSchema } from "@opencode/core/session/schema"
+import { Database } from "@vex/core/database/database"
+import { AppNodeBuilder } from "@vex/core/effect/app-node-builder"
+import { LayerNode } from "@vex/util/effect/layer-node"
+import { Bus } from "@vex/core/bus"
+import { Event } from "@vex/schema/event"
+import { EventTable } from "@vex/core/event/sql"
+import { Instructions } from "@vex/core/instructions/index"
+import { Project } from "@vex/core/project"
+import { ProjectTable } from "@vex/core/project/sql"
+import { AbsolutePath } from "@vex/core/schema"
+import { InstructionState } from "@vex/core/session/instruction-state"
+import { SessionProjector } from "@vex/core/session/projector"
+import { SessionSchema } from "@vex/core/session/schema"
 import {
   InstructionBlobTable,
   InstructionStateTable,
   SessionMessageTable,
   SessionTable,
-} from "@opencode/core/session/sql"
+} from "@vex/core/session/sql"
 import { testEffect } from "./lib/effect"
 
 const it = testEffect(

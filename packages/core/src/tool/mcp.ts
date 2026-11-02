@@ -1,9 +1,9 @@
 export * as McpTool from "./mcp.js"
 
-import { ToolFailure } from "@opencode/ai"
-import { McpEvent } from "@opencode/schema/mcp-event"
+import { ToolFailure } from "@vex/ai"
+import { McpEvent } from "@vex/schema/mcp-event"
 import { Context, Effect, Fiber, type JsonSchema, Layer, PubSub, Semaphore, Stream } from "effect"
-import { makeLocationNode } from "@opencode/util/effect/app-node"
+import { makeLocationNode } from "@vex/util/effect/app-node"
 import { Bus } from "../bus.js"
 
 import { Mcp } from "../mcp/index.js"

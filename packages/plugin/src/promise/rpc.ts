@@ -1,8 +1,8 @@
-import type { RpcApi, RpcCallOptions } from "@opencode/client/promise/api"
-import type { Rpc } from "@opencode/schema/rpc"
+import type { RpcApi, RpcCallOptions } from "@vex/client/promise/api"
+import type { Rpc } from "@vex/schema/rpc"
 import type { Registration } from "./registration.js"
 
-export type { RpcEventPayload } from "@opencode/client/promise/api"
+export type { RpcEventPayload } from "@vex/client/promise/api"
 
 export interface RpcCallContext<M extends Rpc.Method> {
   readonly signal: AbortSignal

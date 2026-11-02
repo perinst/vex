@@ -1,4 +1,4 @@
-import { comparablePath } from "@opencode/util/path"
+import { comparablePath } from "@vex/util/path"
 
 export type PathKey = string & { _brand: "PathKey" }
 

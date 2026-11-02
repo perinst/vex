@@ -1,6 +1,6 @@
-import { SdkPlugins } from "@opencode/core/plugin/sdk"
-import { Tool } from "@opencode/core/tool"
-import { Plugin } from "@opencode/plugin/effect"
+import { SdkPlugins } from "@vex/core/plugin/sdk"
+import { Tool } from "@vex/core/tool"
+import { Plugin } from "@vex/plugin/effect"
 import { createHash } from "node:crypto"
 import {
   Cause,

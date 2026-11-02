@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 import { $ } from "bun"
 import pkg from "../package.json"
-import { Script } from "@opencode/script"
+import { Script } from "@vex/script"
 import { fileURLToPath } from "url"
 import { existsSync } from "fs"
 import { chmod, rm, utimes } from "node:fs/promises"
@@ -84,7 +84,7 @@ async function publishDistribution(input: {
 
   await Promise.all(
     Object.entries(binaries).map(([name, version]) =>
-      publish(`${input.root}/${name.replace("@opencode/", "")}`, name, version),
+      publish(`${input.root}/${name.replace("@vex/", "")}`, name, version),
     ),
   )
   await publish(`${input.root}/${input.name}`, input.name, version)
@@ -93,7 +93,7 @@ async function publishDistribution(input: {
     files: await Promise.all(
       Object.keys(binaries).map((name) =>
         archive(
-          path.join(input.root, name.replace("@opencode/", ""), "bin"),
+          path.join(input.root, name.replace("@vex/", ""), "bin"),
           name.slice(input.packagePrefix.length),
           input.binary,
           input.root,
@@ -129,16 +129,16 @@ await publishDistribution({
   command: "opencode",
   legacyCommand: "opencode2",
   binary: "opencode",
-  packagePrefix: "@opencode/cli-",
+  packagePrefix: "@vex/cli-",
   artifact: "cli",
 })
 if (Script.channel !== "latest" && existsSync(path.join(root, "node"))) {
   await publishDistribution({
     root: path.join(root, "node"),
-    name: "@opencode/cli-node",
+    name: "@vex/cli-node",
     command: "opencode2-node",
     binary: "opencode2-node",
-    packagePrefix: "@opencode/cli-node-",
+    packagePrefix: "@vex/cli-node-",
     artifact: "cli-node",
   })
 }

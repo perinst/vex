@@ -1,11 +1,11 @@
 export * as ManagedPolicy from "./managed-policy.js"
 
-import { Document, type Entry } from "@opencode/schema/config"
+import { Document, type Entry } from "@vex/schema/config"
 import { isDeepStrictEqual } from "node:util"
 import { Wildcard } from "./util/wildcard.js"
-import { ConfigPolicy } from "@opencode/schema/config/policy"
+import { ConfigPolicy } from "@vex/schema/config/policy"
 import { Context, Effect, Layer, PubSub, Stream } from "effect"
-import { makeGlobalNode } from "@opencode/util/effect/app-node"
+import { makeGlobalNode } from "@vex/util/effect/app-node"
 
 /** Policy statements the connected OpenCode Console compiled for whoever it authenticated. */
 export interface State {

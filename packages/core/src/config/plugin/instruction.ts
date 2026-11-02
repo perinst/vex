@@ -1,9 +1,9 @@
 export * as ConfigInstructionPlugin from "./instruction.js"
 
-import { define } from "@opencode/plugin/effect/plugin"
-import { FSUtil } from "@opencode/util/fs-util"
-import { Global } from "@opencode/util/global"
-import { sameDirectory } from "@opencode/util/path"
+import { define } from "@vex/plugin/effect/plugin"
+import { FSUtil } from "@vex/util/fs-util"
+import { Global } from "@vex/util/global"
+import { sameDirectory } from "@vex/util/path"
 import { dirname, join } from "path"
 import { Effect, PubSub, Semaphore, Stream } from "effect"
 import { Watcher } from "../../filesystem/watcher.js"

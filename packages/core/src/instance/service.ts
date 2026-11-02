@@ -2,9 +2,9 @@ export * as Instance from "./service.js"
 export type { Services } from "../instance.js"
 
 import { Context, type Effect } from "effect"
-import type { Session } from "@opencode/schema/session"
-import { Node } from "@opencode/util/effect/app-node"
-import { LayerNode } from "@opencode/util/effect/layer-node"
+import type { Session } from "@vex/schema/session"
+import { Node } from "@vex/util/effect/app-node"
+import { LayerNode } from "@vex/util/effect/layer-node"
 import type { Services, Error } from "../instance.js"
 
 /** Selects Session capabilities; implementations own caching and lifetime. */

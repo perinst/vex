@@ -1,7 +1,13 @@
+import { createRequire } from "node:module"
+import { dirname, resolve } from "node:path"
 import { defineConfig, PluginOption } from "vite"
 import { solidStart } from "@solidjs/start/config"
 import { nitro } from "nitro/vite"
 import tailwindcss from "@tailwindcss/vite"
+import { solidStartRuntimePath } from "../../script/vite/solid-start-runtime-path"
+
+const require = createRequire(import.meta.url)
+const solidStartRuntime = resolve(dirname(require.resolve("@solidjs/start/config")), "../server")
 
 const nitroConfig: any = (() => {
   const target = process.env.OPENCODE_DEPLOYMENT_TARGET
@@ -21,6 +27,7 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     solidStart() as PluginOption,
+    solidStartRuntimePath(solidStartRuntime, resolve(process.cwd(), "src/app.tsx")),
     nitro({
       ...nitroConfig,
       baseURL: process.env.OPENCODE_BASE_URL,

@@ -1,13 +1,13 @@
-import { Session } from "@opencode/core/session"
-import { SessionStats } from "@opencode/core/session/stats"
-import { SessionTitle } from "@opencode/core/session/title"
-import { SessionTransfer } from "@opencode/core/session/transfer"
-import { InstructionEntry } from "@opencode/core/session/instruction-entry"
-import { Form } from "@opencode/core/form"
+import { Session } from "@vex/core/session"
+import { SessionStats } from "@vex/core/session/stats"
+import { SessionTitle } from "@vex/core/session/title"
+import { SessionTransfer } from "@vex/core/session/transfer"
+import { InstructionEntry } from "@vex/core/session/instruction-entry"
+import { Form } from "@vex/core/form"
 import { DateTime, Effect, Stream } from "effect"
 import { HttpApiBuilder, HttpApiSchema } from "effect/http-api"
 import { Api } from "../api"
-import { SessionsCursor } from "@opencode/protocol/groups/session"
+import { SessionsCursor } from "@vex/protocol/groups/session"
 import {
   ConflictError,
   CommandExecutionError,
@@ -21,8 +21,8 @@ import {
   ServiceUnavailableError,
   SessionBusyError,
   SkillNotFoundError,
-} from "@opencode/protocol/errors"
-import { AbsolutePath } from "@opencode/core/schema"
+} from "@vex/protocol/errors"
+import { AbsolutePath } from "@vex/core/schema"
 import { locationErrors } from "../location"
 import { failedMessageDecode, failedSnapshot, missingMessage, missingSession } from "./session-error"
 

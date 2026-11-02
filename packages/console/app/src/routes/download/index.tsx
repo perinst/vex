@@ -59,15 +59,15 @@ export default function Download() {
                 </code>
                 <CopyStatus />
               </button>
-              <button data-component="cli-row" onClick={handleCopyClick("npm install -g @opencode/cli")}>
+              <button data-component="cli-row" onClick={handleCopyClick("npm install -g @vex/cli")}>
                 <code>
-                  npm install -g <strong>@opencode/cli</strong>
+                  npm install -g <strong>@vex/cli</strong>
                 </code>
                 <CopyStatus />
               </button>
-              <button data-component="cli-row" onClick={handleCopyClick("bun install -g --trust @opencode/cli")}>
+              <button data-component="cli-row" onClick={handleCopyClick("bun install -g --trust @vex/cli")}>
                 <code>
-                  bun install -g --trust <strong>@opencode/cli</strong>
+                  bun install -g --trust <strong>@vex/cli</strong>
                 </code>
                 <CopyStatus />
               </button>

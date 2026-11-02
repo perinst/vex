@@ -1,7 +1,7 @@
 export * as SessionEnvironment from "./environment.js"
 
 import { Context, Effect, Layer } from "effect"
-import { makeGlobalNode } from "@opencode/util/effect/app-node"
+import { makeGlobalNode } from "@vex/util/effect/app-node"
 import { SessionSchema } from "./schema.js"
 
 export type Variables = Readonly<Record<string, string>>

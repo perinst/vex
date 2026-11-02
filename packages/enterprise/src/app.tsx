@@ -1,10 +1,10 @@
 import { Router } from "@solidjs/router"
 import { FileRoutes } from "@solidjs/start/router"
-import { Font } from "@opencode/ui/font"
+import { Font } from "@vex/ui/font"
 import { MetaProvider } from "@solidjs/meta"
-import { MarkedProvider } from "@opencode/ui/context/marked"
-import { DialogProvider } from "@opencode/ui/context/dialog"
-import { I18nProvider } from "@opencode/ui/context"
+import { MarkedProvider } from "@vex/ui/context/marked"
+import { DialogProvider } from "@vex/ui/context/dialog"
+import { I18nProvider } from "@vex/ui/context"
 import {
   pluralCategory,
   pluralKey,
@@ -12,13 +12,13 @@ import {
   type UiI18nPluralKey,
   type UiPluralCategory,
   type UiTranslate,
-} from "@opencode/ui/context/i18n"
-import { dict as uiEn } from "@opencode/ui/i18n/en"
-import { dict as uiZh } from "@opencode/ui/i18n/zh"
+} from "@vex/ui/context/i18n"
+import { dict as uiEn } from "@vex/ui/i18n/en"
+import { dict as uiZh } from "@vex/ui/i18n/zh"
 import { createEffect, createMemo, Suspense, type ParentProps } from "solid-js"
 import { getRequestEvent } from "solid-js/web"
 import "./app.css"
-import { Favicon } from "@opencode/ui/favicon"
+import { Favicon } from "@vex/ui/favicon"
 
 function resolveTemplate(text: string, params?: UiI18nParams) {
   if (!params) return text

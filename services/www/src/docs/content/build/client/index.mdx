@@ -2,7 +2,7 @@
 title: "JavaScript"
 ---
 
-`@opencode/client` is the TypeScript client for the Vex HTTP
+`@vex/client` is the TypeScript client for the Vex HTTP
 API. Use it when your application connects to a Vex server over the
 network. Its native types and methods are generated from the same contract as the
 [API reference](/api). Plugin RPC types come from imported RPC definitions.
@@ -10,7 +10,7 @@ network. Its native types and methods are generated from the same contract as th
 ## Install
 
 ```sh
-bun add @opencode/client
+bun add @vex/client
 ```
 
 ## Create a client
@@ -18,7 +18,7 @@ bun add @opencode/client
 Create a client with the server URL, then call methods grouped by API resource:
 
 ```ts
-import { Vex } from "@opencode/client"
+import { Vex } from "@vex/client"
 
 const client = Vex.make({
   baseUrl: "http://localhost:4096",
@@ -80,7 +80,7 @@ subscriber receives the current `server.connected` marker, not past business eve
 Import a plugin's shared contract and pass it to `client.rpc`:
 
 ```ts
-import { Vex } from "@opencode/client"
+import { Vex } from "@vex/client"
 import { Acme } from "opencode-acme-plugin/rpc"
 
 const acme = client.rpc(Acme)
@@ -138,7 +138,7 @@ definition and registration API. Any HTTP client can also invoke the generic
 
 The main client entrypoints are browser-compatible and do not include local
 process management. In a Node application, import the native Promise service
-API from `@opencode/client/service`.
+API from `@vex/client/service`.
 
 - `Service.discover()` returns a healthy registered endpoint without starting
   a process.
@@ -147,8 +147,8 @@ API from `@opencode/client/service`.
 - `Service.headers(endpoint)` creates the authentication headers for a client.
 
 ```ts
-import { Vex } from "@opencode/client"
-import { Service } from "@opencode/client/service"
+import { Vex } from "@vex/client"
+import { Service } from "@vex/client/service"
 
 const endpoint = await Service.ensure()
 const client = Vex.make({

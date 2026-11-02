@@ -1,17 +1,17 @@
 import { describe, expect } from "bun:test"
-import { LanguageModel } from "@opencode/ai"
-import { OpenAIChat } from "@opencode/ai/protocols"
+import { LanguageModel } from "@vex/ai"
+import { OpenAIChat } from "@vex/ai/protocols"
 import { Effect, Fiber, Layer, Ref, Stream } from "effect"
-import { Integration } from "@opencode/core/integration"
-import { Credential } from "@opencode/core/credential"
-import { AppNodeBuilder } from "@opencode/core/effect/app-node-builder"
-import { LayerNode } from "@opencode/util/effect/layer-node"
-import { Bus } from "@opencode/core/bus"
-import { Location } from "@opencode/core/location"
-import { Model } from "@opencode/core/model"
-import { ModelResolver } from "@opencode/core/model-resolver"
-import { Provider } from "@opencode/core/provider"
-import { AbsolutePath } from "@opencode/core/schema"
+import { Integration } from "@vex/core/integration"
+import { Credential } from "@vex/core/credential"
+import { AppNodeBuilder } from "@vex/core/effect/app-node-builder"
+import { LayerNode } from "@vex/util/effect/layer-node"
+import { Bus } from "@vex/core/bus"
+import { Location } from "@vex/core/location"
+import { Model } from "@vex/core/model"
+import { ModelResolver } from "@vex/core/model-resolver"
+import { Provider } from "@vex/core/provider"
+import { AbsolutePath } from "@vex/core/schema"
 import { location } from "./fixture/location"
 import { testEffect } from "./lib/effect"
 
@@ -41,7 +41,7 @@ describe("Provider and Model", () => {
         yield* providers.transform((editor) => editor.update(providerID, () => {}))
         yield* models.transform((editor) =>
           editor.update(providerID, modelID, (model) => {
-            model.package = path === "aisdk" ? Provider.aisdk("@ai-sdk/fixture") : "@opencode/ai/providers/openai"
+            model.package = path === "aisdk" ? Provider.aisdk("@ai-sdk/fixture") : "@vex/ai/providers/openai"
             model.settings = {
               apiKey: path === "empty-key" ? "" : "fixture-key",
               baseURL: "https://fixture.example/v1",
@@ -487,12 +487,12 @@ describe("Provider and Model", () => {
       })
 
       expect(required(yield* providers.get(providerID))).toMatchObject({
-        package: "@opencode/ai/providers/amazon-bedrock",
+        package: "@vex/ai/providers/amazon-bedrock",
         settings: { region: "us-east-1" },
         body: { tag: "provider" },
       })
       const model = required(yield* models.get(providerID, modelID))
-      expect(model.package).toBe("@opencode/ai/providers/amazon-bedrock")
+      expect(model.package).toBe("@vex/ai/providers/amazon-bedrock")
       expect(model.settings).not.toHaveProperty("reasoningConfig")
       expect(model.body).toMatchObject({
         additionalModelRequestFields: { thinking: { type: "adaptive" }, output_config: { effort: "high" } },

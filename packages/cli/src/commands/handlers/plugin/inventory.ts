@@ -1,8 +1,8 @@
 import { EOL } from "node:os"
 import { Cause, Effect, Exit } from "effect"
-import { OpenCode } from "@opencode/client"
-import { Service } from "@opencode/client/effect/service"
-import { Npm } from "@opencode/util/npm"
+import { OpenCode } from "@vex/client"
+import { Service } from "@vex/client/effect/service"
+import { Npm } from "@vex/util/npm"
 import { Config } from "../../../config"
 import { ServerConnection } from "../../../services/server-connection"
 

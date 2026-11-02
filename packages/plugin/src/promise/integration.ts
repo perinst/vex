@@ -1,8 +1,8 @@
-import type { ConnectionInfo } from "@opencode/client"
-import type { IntegrationApi } from "@opencode/client/promise/api"
-import { Connection } from "@opencode/schema/connection"
-import { Credential } from "@opencode/schema/credential"
-import { Form } from "@opencode/schema/form"
+import type { ConnectionInfo } from "@vex/client"
+import type { IntegrationApi } from "@vex/client/promise/api"
+import { Connection } from "@vex/schema/connection"
+import { Credential } from "@vex/schema/credential"
+import { Form } from "@vex/schema/form"
 import type { Transform } from "./registration.js"
 
 type IntegrationRef = { id: string; name: string }

@@ -2,14 +2,14 @@ import { expect, test } from "bun:test"
 import { EmbeddedTerminalRenderable } from "@opentui/core"
 import { createTestRenderer } from "@opentui/core/testing"
 import { Effect, FileSystem } from "effect"
-import { Global } from "@opencode/util/global"
-import { SimulationRenderer } from "@opencode/simulation/frontend/renderer"
+import { Global } from "@vex/util/global"
+import { SimulationRenderer } from "@vex/simulation/frontend/renderer"
 import path from "node:path"
 import { Writable } from "node:stream"
 import { createEventStream, createFetch, directory, json } from "./fixture/tui-client"
 import { tmpdir } from "./fixture/fixture"
 import { createAppFixture } from "./fixture/app"
-import type { PluginInfo } from "@opencode/client"
+import type { PluginInfo } from "@vex/client"
 
 test.each([100, 44])("Ctrl-O is immediate, dismissible, and prunes cached deletions at width %s", async (width) => {
   await using state = await tmpdir()

@@ -1,7 +1,7 @@
 export * as ServerPairing from "./pairing"
 
 import { Cache, Context, Duration, Effect, Layer } from "effect"
-import { makeGlobalNode } from "@opencode/util/effect/app-node"
+import { makeGlobalNode } from "@vex/util/effect/app-node"
 import { randomBytes } from "node:crypto"
 
 const TTL = Duration.minutes(5)

@@ -1,11 +1,11 @@
 export * as WellKnown from "./wellknown.js"
 
-import { Integration } from "@opencode/schema/integration"
+import { Integration } from "@vex/schema/integration"
 import { Context, Effect, Layer, Ref, Schema, Semaphore } from "effect"
 import { HttpClient, HttpClientRequest, HttpClientResponse } from "effect/http"
 import { isDeepStrictEqual } from "node:util"
-import { makeGlobalNode } from "@opencode/util/effect/app-node"
-import { httpClient } from "@opencode/util/effect/app-node-platform"
+import { makeGlobalNode } from "@vex/util/effect/app-node"
+import { httpClient } from "@vex/util/effect/app-node-platform"
 import { Bus } from "./bus.js"
 import { KV } from "./kv.js"
 

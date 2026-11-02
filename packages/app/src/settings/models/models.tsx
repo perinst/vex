@@ -1,5 +1,5 @@
-import { useFilteredList } from "@opencode/ui/hooks"
-import { Switch } from "@opencode/ui/switch"
+import { useFilteredList } from "@vex/ui/hooks"
+import { Switch } from "@vex/ui/switch"
 import { type Component, createEffect, createMemo, For, Show } from "solid-js"
 
 import { Schema } from "effect"

@@ -1,14 +1,14 @@
 import fs from "fs/promises"
 import path from "path"
 import { expect } from "bun:test"
-import { LanguageModel, LLMClient } from "@opencode/ai"
-import { OpenAIChat } from "@opencode/ai/protocols"
-import { TestLLM } from "@opencode/ai/testing"
-import { llmClient } from "@opencode/core/effect/app-node-platform"
-import { makeMemoryDriver } from "@opencode/core/environment/index"
-import { SessionRunnerModel } from "@opencode/core/session/runner/model"
-import { WorkspaceDriver } from "@opencode/core/workspace/driver"
-import { Plugin } from "@opencode/plugin/effect"
+import { LanguageModel, LLMClient } from "@vex/ai"
+import { OpenAIChat } from "@vex/ai/protocols"
+import { TestLLM } from "@vex/ai/testing"
+import { llmClient } from "@vex/core/effect/app-node-platform"
+import { makeMemoryDriver } from "@vex/core/environment/index"
+import { SessionRunnerModel } from "@vex/core/session/runner/model"
+import { WorkspaceDriver } from "@vex/core/workspace/driver"
+import { Plugin } from "@vex/plugin/effect"
 import { makeDurableObjectStorage } from "../../core/test/fixture/durable-object-storage"
 import { OpenCodeWorkerd } from "../src/effect/workerd"
 import { Deferred, Effect, Fiber, Latch, Layer, Option, Stream } from "effect"
@@ -107,7 +107,7 @@ it.live("seeds host plugins from CreateOptions and waits for delayed model plugi
               providers.update(fixture.sdk.Provider.ID.make("seeded"), (provider) => {
                 provider.name = "Seeded Provider"
                 provider.activation = "enabled"
-                provider.package = "@opencode/ai/providers/openai-compatible"
+                provider.package = "@vex/ai/providers/openai-compatible"
                 provider.settings = { baseURL: "https://provider.example/v1", apiKey: "secret" }
               })
               providers.models.update(
@@ -170,7 +170,7 @@ it.live("OpenCodeWorkerd seeds plugins before cold model resolution", () =>
                   providers.update(fixture.sdk.Provider.ID.make("workerd-seeded"), (provider) => {
                     provider.name = "Workerd Seeded"
                     provider.activation = "enabled"
-                    provider.package = "@opencode/ai/providers/openai-compatible"
+                    provider.package = "@vex/ai/providers/openai-compatible"
                     provider.settings = { baseURL: "https://provider.example/v1", apiKey: "secret" }
                   })
                   providers.models.update(

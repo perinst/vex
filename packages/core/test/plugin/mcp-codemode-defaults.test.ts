@@ -1,6 +1,6 @@
 import { expect } from "bun:test"
-import { McpCodeModeDefaultsPlugin } from "@opencode/core/plugin/mcp-codemode-defaults"
-import type { Mcp } from "@opencode/schema/mcp"
+import { McpCodeModeDefaultsPlugin } from "@vex/core/plugin/mcp-codemode-defaults"
+import type { Mcp } from "@vex/schema/mcp"
 import { Effect, type Types } from "effect"
 import { it } from "../lib/effect"
 import { host } from "./host"

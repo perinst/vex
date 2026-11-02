@@ -2,17 +2,17 @@
 title: "Cloudflare"
 ---
 
-Use `@opencode/sdk/workerd` inside a Cloudflare Durable Object. This profile uses the object's SQLite storage,
+Use `@vex/sdk/workerd` inside a Cloudflare Durable Object. This profile uses the object's SQLite storage,
 persists durable events for eviction recovery, and replaces unavailable local filesystem and process services.
 
 ```sh
-bun add @opencode/sdk
+bun add @vex/sdk
 ```
 
 Hold one host for the lifetime of the Durable Object instance instead of creating one for every request.
 
 ```ts
-import { OpenCodeWorkerd } from "@opencode/sdk/workerd"
+import { OpenCodeWorkerd } from "@vex/sdk/workerd"
 import myPlugin from "./my-plugin"
 
 export class OpenCodeDO {
@@ -62,8 +62,8 @@ Worker. Pass plugins to `OpenCodeWorkerd.create()` to customize agents, models,
 tools, and other behavior:
 
 ```ts
-import { Plugin } from "@opencode/plugin"
-import { OpenCodeWorkerd } from "@opencode/sdk/workerd"
+import { Plugin } from "@vex/plugin"
+import { OpenCodeWorkerd } from "@vex/sdk/workerd"
 
 const plugin = Plugin.define({
   id: "customize-agent",

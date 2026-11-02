@@ -1,5 +1,5 @@
-import { base64Encode } from "@opencode/util/encode"
-import type { JsonValue, OpenCodeEvent, SessionMessageAssistant, SessionMessageInfo } from "@opencode/client/promise"
+import { base64Encode } from "@vex/util/encode"
+import type { JsonValue, OpenCodeEvent, SessionMessageAssistant, SessionMessageInfo } from "@vex/client/promise"
 import type { Page } from "@playwright/test"
 import { mockOpenCodeServer } from "../../utils/mock-server"
 import { expectAppVisible, expectSessionTitle } from "../../utils/waits"

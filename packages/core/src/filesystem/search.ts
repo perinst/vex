@@ -1,11 +1,11 @@
 export * as FileSystemSearch from "./search.js"
 
-import { makeLocationNode } from "@opencode/util/effect/app-node"
+import { makeLocationNode } from "@vex/util/effect/app-node"
 import path from "path"
 import { Clock, Context, Deferred, Duration, Effect, Layer, Schema, Scope } from "effect"
 import { Fff } from "#fff"
 import fuzzysort from "fuzzysort"
-import { FileSystem } from "@opencode/schema/filesystem"
+import { FileSystem } from "@vex/schema/filesystem"
 import { Location } from "../location.js"
 import { Ripgrep } from "../ripgrep.js"
 import { RelativePath } from "../schema.js"

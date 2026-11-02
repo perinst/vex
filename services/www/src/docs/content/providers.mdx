@@ -39,7 +39,7 @@ runtime package, endpoint, and first model together.
     "acme": {
       "name": "Acme",
       "env": ["ACME_API_KEY"],
-      "package": "@opencode/ai/providers/openai-compatible",
+      "package": "@vex/ai/providers/openai-compatible",
       "settings": {
         "baseURL": "https://llm.acme.example/v1",
       },
@@ -185,7 +185,7 @@ implement the OpenAI request format.
   "$schema": "https://opencode.ai/config.json",
   "providers": {
     "acme": {
-      "package": "@opencode/ai/providers/openai-compatible",
+      "package": "@vex/ai/providers/openai-compatible",
       "settings": {
         "baseURL": "https://llm.acme.example/v1",
       },
@@ -199,28 +199,28 @@ implement the OpenAI request format.
 
 Native package options include:
 
-- `@opencode/ai/providers/openai`
-- `@opencode/ai/providers/openai/chat`
-- `@opencode/ai/providers/openai/responses`
-- `@opencode/ai/providers/openai-compatible`
-- `@opencode/ai/providers/openai-compatible/responses`
-- `@opencode/ai/providers/anthropic`
-- `@opencode/ai/providers/anthropic-compatible`
-- `@opencode/ai/providers/google`
-- `@opencode/ai/providers/google-vertex`
-- `@opencode/ai/providers/google-vertex/gemini`
-- `@opencode/ai/providers/google-vertex/chat`
-- `@opencode/ai/providers/google-vertex/responses`
-- `@opencode/ai/providers/google-vertex/messages`
-- `@opencode/ai/providers/azure`
-- `@opencode/ai/providers/azure/chat`
-- `@opencode/ai/providers/azure/responses`
-- `@opencode/ai/providers/amazon-bedrock`
-- `@opencode/ai/providers/amazon-bedrock/mantle`
-- `@opencode/ai/providers/amazon-bedrock/mantle/chat`
-- `@opencode/ai/providers/amazon-bedrock/mantle/responses`
-- `@opencode/ai/providers/openrouter`
-- `@opencode/ai/providers/xai`
+- `@vex/ai/providers/openai`
+- `@vex/ai/providers/openai/chat`
+- `@vex/ai/providers/openai/responses`
+- `@vex/ai/providers/openai-compatible`
+- `@vex/ai/providers/openai-compatible/responses`
+- `@vex/ai/providers/anthropic`
+- `@vex/ai/providers/anthropic-compatible`
+- `@vex/ai/providers/google`
+- `@vex/ai/providers/google-vertex`
+- `@vex/ai/providers/google-vertex/gemini`
+- `@vex/ai/providers/google-vertex/chat`
+- `@vex/ai/providers/google-vertex/responses`
+- `@vex/ai/providers/google-vertex/messages`
+- `@vex/ai/providers/azure`
+- `@vex/ai/providers/azure/chat`
+- `@vex/ai/providers/azure/responses`
+- `@vex/ai/providers/amazon-bedrock`
+- `@vex/ai/providers/amazon-bedrock/mantle`
+- `@vex/ai/providers/amazon-bedrock/mantle/chat`
+- `@vex/ai/providers/amazon-bedrock/mantle/responses`
+- `@vex/ai/providers/openrouter`
+- `@vex/ai/providers/xai`
 
 You can also use an npm package such as `@acme/opencode-provider` or an absolute `file://` URL for a local package.
 
@@ -587,7 +587,7 @@ The configuration key becomes the provider prefix and each `models` key becomes 
   "providers": {
     "company": {
       "env": ["COMPANY_GATEWAY_KEY"],
-      "package": "@opencode/ai/providers/openai-compatible",
+      "package": "@vex/ai/providers/openai-compatible",
       "settings": {
         "baseURL": "https://gateway.example.com/v1",
       },

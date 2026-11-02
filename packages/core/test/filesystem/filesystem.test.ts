@@ -1,8 +1,8 @@
 import { describe, test, expect } from "bun:test"
 import { Effect, FileSystem, Layer } from "effect"
-import { LayerNodePlatform } from "@opencode/util/effect/app-node-platform"
-import { LayerNode } from "@opencode/util/effect/layer-node"
-import { FSUtil } from "@opencode/util/fs-util"
+import { LayerNodePlatform } from "@vex/util/effect/app-node-platform"
+import { LayerNode } from "@vex/util/effect/layer-node"
+import { FSUtil } from "@vex/util/fs-util"
 import { testEffect } from "../lib/effect"
 import path from "path"
 

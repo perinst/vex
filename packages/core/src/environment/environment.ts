@@ -1,5 +1,5 @@
-import { CrossSpawnSpawner } from "@opencode/util/cross-spawn-spawner"
-import { makeLocationNode } from "@opencode/util/effect/app-node"
+import { CrossSpawnSpawner } from "@vex/util/cross-spawn-spawner"
+import { makeLocationNode } from "@vex/util/effect/app-node"
 import { Context, Effect, Layer } from "effect"
 import { ChildProcessSpawner } from "effect/process/ChildProcessSpawner"
 import type { Files } from "./files.js"

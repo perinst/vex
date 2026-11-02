@@ -1,9 +1,9 @@
 export * as Generate from "./generate.js"
 
-import { LLM, LLMClient, AIError } from "@opencode/ai"
-import { SessionID } from "@opencode/schema/session-id"
+import { LLM, LLMClient, AIError } from "@vex/ai"
+import { SessionID } from "@vex/schema/session-id"
 import { Context, Effect, Layer, Schema } from "effect"
-import { makeLocationNode } from "@opencode/util/effect/app-node"
+import { makeLocationNode } from "@vex/util/effect/app-node"
 import { llmClient } from "./effect/app-node-platform.js"
 import { ModelResolver } from "./model-resolver.js"
 import { Model } from "./model.js"

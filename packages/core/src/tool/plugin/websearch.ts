@@ -1,8 +1,8 @@
 export * as WebSearchTool from "./websearch.js"
 
-import type { Context } from "@opencode/plugin/effect/plugin"
-import type { SessionHooks } from "@opencode/plugin/effect/session"
-import { ToolFailure } from "@opencode/ai"
+import type { Context } from "@vex/plugin/effect/plugin"
+import type { SessionHooks } from "@vex/plugin/effect/session"
+import { ToolFailure } from "@vex/ai"
 import { Effect, Schema, Semaphore } from "effect"
 import { HttpClientError } from "effect/http"
 import { Form } from "../../form.js"

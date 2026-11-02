@@ -3,8 +3,8 @@ import type {
   SessionMessageInfo,
   SessionMessageUser,
   SessionStatus,
-} from "@opencode/client/promise"
-import { useI18n } from "@opencode/ui/context/i18n"
+} from "@vex/client/promise"
+import { useI18n } from "@vex/ui/context/i18n"
 import { Option, Predicate, Schema } from "effect"
 import { For, Show, createMemo, type Accessor, type JSX } from "solid-js"
 import { Dynamic } from "solid-js/web"

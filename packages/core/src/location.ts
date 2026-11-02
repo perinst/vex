@@ -1,8 +1,8 @@
 import { Context, Effect, Layer } from "effect"
-import { Info, Ref, response } from "@opencode/schema/location"
+import { Info, Ref, response } from "@vex/schema/location"
 import { Project } from "./project.js"
-import { LayerNode } from "@opencode/util/effect/layer-node"
-import { makeLocationNode, tags } from "@opencode/util/effect/app-node"
+import { LayerNode } from "@vex/util/effect/layer-node"
+import { makeLocationNode, tags } from "@vex/util/effect/app-node"
 
 export * as Location from "./location.js"
 

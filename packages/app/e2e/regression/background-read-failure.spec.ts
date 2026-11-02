@@ -1,4 +1,4 @@
-import type { OpenCodeEvent } from "@opencode/client/promise"
+import type { OpenCodeEvent } from "@vex/client/promise"
 import { expect, test } from "@playwright/test"
 import { openCommandPalette, paletteSession } from "../utils/command-palette"
 

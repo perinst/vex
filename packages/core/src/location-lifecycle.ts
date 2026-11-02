@@ -1,8 +1,8 @@
 export * as LocationLifecycle from "./location-lifecycle.js"
 
 import { Context, Deferred, Effect, Layer, Schema } from "effect"
-import { makeLocationNode } from "@opencode/util/effect/app-node"
-import { LocationEvent } from "@opencode/schema/location-event"
+import { makeLocationNode } from "@vex/util/effect/app-node"
+import { LocationEvent } from "@vex/schema/location-event"
 import { Bus } from "./bus.js"
 import { Form } from "./form.js"
 import { Location } from "./location.js"

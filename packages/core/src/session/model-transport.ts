@@ -9,13 +9,13 @@ import {
   type WebSocketChannelExecutor,
   type WebSocketConnection,
   type WebSocketConnector,
-} from "@opencode/ai/route"
-import { AIError, AIErrorReason, TransportError, type TransportOperation } from "@opencode/ai"
-import { Hash } from "@opencode/util/hash"
+} from "@vex/ai/route"
+import { AIError, AIErrorReason, TransportError, type TransportOperation } from "@vex/ai"
+import { Hash } from "@vex/util/hash"
 import { Cause, Clock, Context, Duration, Effect, Fiber, Layer, Metric, Queue, Scope, Semaphore, Stream } from "effect"
 import { Headers } from "effect/http"
 import { Socket } from "effect/socket"
-import { makeGlobalNode } from "@opencode/util/effect/app-node"
+import { makeGlobalNode } from "@vex/util/effect/app-node"
 import { SessionSchema } from "./schema.js"
 import { webSocketConstructor } from "../effect/app-node-platform.js"
 

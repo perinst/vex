@@ -1,9 +1,9 @@
 export * as IdentityPlugin from "./identity.js"
 
-import { SystemPart } from "@opencode/ai"
-import { define } from "@opencode/plugin/effect/plugin"
-import type { SessionHooks } from "@opencode/plugin/effect/session"
-import { Model } from "@opencode/schema/model"
+import { SystemPart } from "@vex/ai"
+import { define } from "@vex/plugin/effect/plugin"
+import type { SessionHooks } from "@vex/plugin/effect/session"
+import { Model } from "@vex/schema/model"
 import { Effect } from "effect"
 
 export function identity(model: { readonly name: string; readonly ref: Model.Ref }) {

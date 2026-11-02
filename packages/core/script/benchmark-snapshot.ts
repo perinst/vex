@@ -16,8 +16,8 @@ import { Git } from "../src/git"
 import { Location } from "../src/location"
 import { AbsolutePath, RelativePath } from "../src/schema"
 import { Snapshot } from "../src/snapshot"
-import { Global } from "@opencode/util/global"
-import { AppProcess } from "@opencode/util/process"
+import { Global } from "@vex/util/global"
+import { AppProcess } from "@vex/util/process"
 
 const args = process.argv.slice(2)
 const flag = (name: string) => {

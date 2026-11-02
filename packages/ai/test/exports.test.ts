@@ -17,9 +17,9 @@ import {
   TranscriptionClient,
   Video,
   VideoClient,
-} from "@opencode/ai"
-import { Route, Protocol, RequestExecutor, WebSocketTransport } from "@opencode/ai/route"
-import { Provider as ProviderSubpath } from "@opencode/ai/provider"
+} from "@vex/ai"
+import { Route, Protocol, RequestExecutor, WebSocketTransport } from "@vex/ai/route"
+import { Provider as ProviderSubpath } from "@vex/ai/provider"
 import {
   AssemblyAI,
   Baseten,
@@ -45,7 +45,7 @@ import {
   VercelAIGateway,
   XAI,
   ZAI,
-} from "@opencode/ai/providers"
+} from "@vex/ai/providers"
 import {
   OpenAIChat,
   OpenAICompatibleChat,
@@ -53,10 +53,10 @@ import {
   OpenAIResponses,
   OpenResponses,
   OpenResponsesChannel,
-} from "@opencode/ai/protocols"
-import * as AnthropicMessages from "@opencode/ai/protocols/anthropic-messages"
-import { TestLLM } from "@opencode/ai/testing"
-import { Evaluation, EvaluationClient } from "@opencode/ai/experimental"
+} from "@vex/ai/protocols"
+import * as AnthropicMessages from "@vex/ai/protocols/anthropic-messages"
+import { TestLLM } from "@vex/ai/testing"
+import { Evaluation, EvaluationClient } from "@vex/ai/experimental"
 
 describe("public exports", () => {
   test("modality, provider, and protocol entrypoints load first in a fresh process", async () => {
@@ -127,7 +127,7 @@ describe("public exports", () => {
   })
 
   test("provider barrels expose user-facing facades", async () => {
-    const { OpenAICompatibleResponses } = await import("@opencode/ai/providers")
+    const { OpenAICompatibleResponses } = await import("@vex/ai/providers")
 
     expect(OpenAI.model).toBeFunction()
     expect(OpenAI.provider.responses).toBe(OpenAI.responses)

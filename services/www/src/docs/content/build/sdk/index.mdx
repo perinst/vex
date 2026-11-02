@@ -2,7 +2,7 @@
 title: "Overview"
 ---
 
-`@opencode/sdk` hosts Vex directly inside your application. Unlike the
+`@vex/sdk` hosts Vex directly inside your application. Unlike the
 [network client](/build/client), it assembles the Vex server and routes API
 calls through its HTTP router in memory. It opens no HTTP listener and adds no
 network hop between the client and server.
@@ -12,7 +12,7 @@ For Cloudflare Durable Objects, see the [Cloudflare guide](/build/sdk/cloudflare
 Install the SDK:
 
 ```sh
-bun add @opencode/sdk
+bun add @vex/sdk
 ```
 
 ## Create a host
@@ -21,7 +21,7 @@ bun add @opencode/sdk
 release its router, Location services, fibers, and scoped plugin registrations:
 
 ```ts
-import { Vex } from "@opencode/sdk"
+import { Vex } from "@vex/sdk"
 
 await using opencode = await Vex.create()
 const session = await opencode.sessions.create({
@@ -38,7 +38,7 @@ Call `await opencode.close()` explicitly when explicit resource management is
 not available.
 
 The embedded host uses the same Promise values, declared errors, request
-options, and `AsyncIterable` streams as `@opencode/client`. It exposes the
+options, and `AsyncIterable` streams as `@vex/client`. It exposes the
 full generated client and adds the convenience aliases `sessions` and `events`
 for the session and event groups.
 
@@ -76,8 +76,8 @@ Customize your Vex instance by registering plugins. Pass plugins to
 the embedded host starts:
 
 ```ts
-import { Plugin } from "@opencode/plugin"
-import { Vex } from "@opencode/sdk"
+import { Plugin } from "@vex/plugin"
+import { Vex } from "@vex/sdk"
 
 const plugin = Plugin.define({
   id: "customize-agent",

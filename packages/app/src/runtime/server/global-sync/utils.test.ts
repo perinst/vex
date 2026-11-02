@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test"
-import type { AgentListOutput, ModelListOutput, Project, ProviderListOutput } from "@opencode/client/promise"
+import type { AgentListOutput, ModelListOutput, Project, ProviderListOutput } from "@vex/client/promise"
 import { directoryKey, normalizeAgentList, normalizeProjectInfo, normalizeProviderList } from "./utils"
 
 describe("normalizeAgentList", () => {

@@ -1,6 +1,7 @@
 import { loadRuntimeModules, resolveHostPackageRoots, type RuntimeModuleLoader } from "./runtime-modules.js"
 
-const foreignPkgSuffix = String.raw`(?:node_modules[/\\](@opencode[/\\]plugin|effect)|(@opencode[/\\]plugin|effect)@[^/\\]+@@@\d+)`
+const pluginPackage = String.raw`@(?:opencode|vex)[/\\]plugin`
+const foreignPkgSuffix = String.raw`(?:node_modules[/\\](${pluginPackage}|effect)|(${pluginPackage}|effect)@[^/\\]+@@@\d+)`
 const foreignPkgPattern = new RegExp(String.raw`^(.*[/\\]${foreignPkgSuffix})[/\\](.+)$`)
 
 let installed: Readonly<Record<string, RuntimeModuleLoader>> | undefined
@@ -29,7 +30,7 @@ export function ensurePluginRuntime() {
         const match = args.path.match(foreignPkgPattern)
         const target = match ? `${match[2] ?? match[3]}/${match[4]}`.replaceAll("\\", "/") : args.path
         throw new Error(
-          `Cannot load "${target}" from plugin node_modules: "${target}" is not provided by OpenCode; plugins must use the host's "effect" and "@opencode/plugin" modules.`,
+          `Cannot load "${target}" from plugin node_modules: "${target}" is not provided by OpenCode; plugins must use the host's "effect" and "@vex/plugin" modules.`,
         )
       })
     },

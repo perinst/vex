@@ -1,4 +1,4 @@
-import { Button } from "@opencode/ui/button"
+import { Button } from "@vex/ui/button"
 import { DockPrompt } from "./dock-prompt"
 
 export default {

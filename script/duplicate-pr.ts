@@ -1,9 +1,9 @@
 #!/usr/bin/env bun
 
-/* TODO: Migrate this script to the new in-process @opencode/sdk.
+/* TODO: Migrate this script to the new in-process @vex/sdk.
 import path from "path"
 import { pathToFileURL } from "bun"
-import { createOpencode } from "@opencode/sdk"
+import { createOpencode } from "@vex/sdk"
 import { parseArgs } from "util"
 
 async function main() {

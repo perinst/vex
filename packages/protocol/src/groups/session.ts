@@ -1,10 +1,10 @@
-import { SessionMessage } from "@opencode/schema/session-message"
-import { SessionInbox } from "@opencode/schema/session-inbox"
-import { PromptInput } from "@opencode/schema/prompt-input"
-import { Session } from "@opencode/schema/session"
-import { SessionStats } from "@opencode/schema/session-stats"
-import { InstructionEntry } from "@opencode/schema/instruction-entry"
-import { Project } from "@opencode/schema/project"
+import { SessionMessage } from "@vex/schema/session-message"
+import { SessionInbox } from "@vex/schema/session-inbox"
+import { PromptInput } from "@vex/schema/prompt-input"
+import { Session } from "@vex/schema/session"
+import { SessionStats } from "@vex/schema/session-stats"
+import { InstructionEntry } from "@vex/schema/instruction-entry"
+import { Project } from "@vex/schema/project"
 import {
   AbsolutePath,
   DateTimeUtcFromMillis,
@@ -12,8 +12,8 @@ import {
   PositiveInt,
   RelativePath,
   statics,
-} from "@opencode/schema/schema"
-import { Event } from "@opencode/schema/event"
+} from "@vex/schema/schema"
+import { Event } from "@vex/schema/event"
 import { Context, Effect, Result, Schema, SchemaGetter, SchemaParser, Struct } from "effect"
 import { Base64Url } from "effect/encoding"
 import { HttpApiEndpoint, HttpApiGroup, HttpApiMiddleware, HttpApiSchema, OpenApi } from "effect/http-api"
@@ -34,15 +34,15 @@ import {
   SkillNotFoundError,
   UnknownError,
 } from "../errors.js"
-import { Agent } from "@opencode/schema/agent"
-import { Skill } from "@opencode/schema/skill"
-import { Model } from "@opencode/schema/model"
-import { Permission } from "@opencode/schema/permission"
-import { Location } from "@opencode/schema/location"
-import { SessionEvent } from "@opencode/schema/session-event"
-import { EventLog } from "@opencode/schema/event-log"
-import { FileDiff } from "@opencode/schema/file-diff"
-import { Form } from "@opencode/schema/form"
+import { Agent } from "@vex/schema/agent"
+import { Skill } from "@vex/schema/skill"
+import { Model } from "@vex/schema/model"
+import { Permission } from "@vex/schema/permission"
+import { Location } from "@vex/schema/location"
+import { SessionEvent } from "@vex/schema/session-event"
+import { EventLog } from "@vex/schema/event-log"
+import { FileDiff } from "@vex/schema/file-diff"
+import { Form } from "@vex/schema/form"
 import { PublicSessionMessage } from "./message.js"
 
 const ParentIDFilter = Schema.Union([

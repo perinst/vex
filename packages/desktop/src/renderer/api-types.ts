@@ -1,5 +1,5 @@
-import type { DesktopMenuAction } from "@opencode/app/desktop-menu"
-import type { DesktopNativeBundle } from "@opencode/app/i18n/desktop-native"
+import type { DesktopMenuAction } from "@vex/app/desktop-menu"
+import type { DesktopNativeBundle } from "@vex/app/i18n/desktop-native"
 import type { WindowBootstrap } from "../shared/window-bootstrap"
 import type {
   ClipboardImage,

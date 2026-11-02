@@ -1,8 +1,8 @@
 import { describe, expect, test } from "bun:test"
 import fs from "fs/promises"
 import path from "path"
-import { Flock } from "@opencode/util/flock"
-import { Hash } from "@opencode/util/hash"
+import { Flock } from "@vex/util/flock"
+import { Hash } from "@vex/util/hash"
 import { runLockWorker, spawnLockWorker, stopLockWorker, waitForFile } from "../fixture/lock-worker"
 import { tmpdir } from "../fixture/tmpdir"
 
