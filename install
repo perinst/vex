@@ -10,7 +10,7 @@ NC='\033[0m' # No Color
 
 usage() {
     cat <<EOF
-OpenCode Installer
+Vex Installer
 
 Usage: install.sh [options]
 
@@ -363,7 +363,7 @@ install_from_binary() {
     chmod 755 "$INSTALL_DIR/$installed_binary"
 }
 
-install_legacy_shim() {
+install_cli_shims() {
     local shim_os="${os:-}"
     if [[ -z "$shim_os" ]]; then
         case "$(uname -s)" in
@@ -371,9 +371,16 @@ install_legacy_shim() {
         esac
     fi
     rm -f "$INSTALL_DIR/opencode2" "$INSTALL_DIR/opencode2.exe" "$INSTALL_DIR/opencode2.cmd"
+    rm -f "$INSTALL_DIR/vex" "$INSTALL_DIR/vex.exe" "$INSTALL_DIR/vex.cmd"
     if [[ "$shim_os" == "windows" ]]; then
         cat > "$INSTALL_DIR/opencode2.cmd" <<'EOF'
 @echo off
+"%~dp0opencode.exe" %*
+exit /b %errorlevel%
+EOF
+        cat > "$INSTALL_DIR/vex.cmd" <<'EOF'
+@echo off
+set "VEX_CLI_ENTRY=1"
 "%~dp0opencode.exe" %*
 exit /b %errorlevel%
 EOF
@@ -384,6 +391,11 @@ EOF
 exec "$(dirname "$0")/opencode" "$@"
 EOF
     chmod 755 "$INSTALL_DIR/opencode2"
+    cat > "$INSTALL_DIR/vex" <<'EOF'
+#!/bin/sh
+VEX_CLI_ENTRY=1 exec "$(dirname "$0")/opencode" "$@"
+EOF
+    chmod 755 "$INSTALL_DIR/vex"
 }
 
 if [ -n "$binary_path" ]; then
@@ -392,7 +404,7 @@ else
     check_version
     download_and_install
 fi
-install_legacy_shim
+install_cli_shims
 
 
 add_to_path() {
@@ -402,9 +414,9 @@ add_to_path() {
     if grep -Fxq "$command" "$config_file"; then
         print_message info "Command already exists in $config_file, skipping write."
     elif [[ -w $config_file ]]; then
-        echo -e "\n# opencode" >> "$config_file"
+        echo -e "\n# vex" >> "$config_file"
         echo "$command" >> "$config_file"
-        print_message info "${MUTED}Successfully added ${NC}opencode ${MUTED}to \$PATH in ${NC}$config_file"
+        print_message info "${MUTED}Successfully added ${NC}Vex ${MUTED}to \$PATH in ${NC}$config_file"
     else
         print_message warning "Manually add the directory to $config_file (or similar):"
         print_message info "  $command"
@@ -486,10 +498,10 @@ echo -e "${MUTED}█░░█ █░░█ █▀▀▀ █░░█ ${NC}█░
 echo -e "${MUTED}▀▀▀▀ █▀▀▀ ▀▀▀▀ ▀  ▀ ${NC}▀▀▀▀ ▀▀▀▀ ▀▀▀▀ ▀▀▀▀"
 echo -e ""
 echo -e ""
-echo -e "${MUTED}OpenCode includes free models, to start:${NC}"
+echo -e "${MUTED}Vex includes free models, to start:${NC}"
 echo -e ""
 echo -e "cd <project>  ${MUTED}# Open directory${NC}"
-echo -e "opencode      ${MUTED}# Run command${NC}"
+echo -e "vex           ${MUTED}# Run command${NC}"
 echo -e ""
 echo -e "${MUTED}For more information visit ${NC}https://opencode.ai/v2/docs"
 echo -e ""

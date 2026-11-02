@@ -1,4 +1,5 @@
 export * as OpenCode from "./opencode"
+export * as Vex from "./opencode"
 export * as Tool from "./tool"
 
 export { ClientError } from "@opencode/client"

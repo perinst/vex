@@ -1,6 +1,6 @@
-# OpenCode Desktop
+# Vex Desktop
 
-The OpenCode Desktop app, built with Electron.
+The Vex Desktop app, built with Electron.
 
 ## Development
 

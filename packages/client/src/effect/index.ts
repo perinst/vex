@@ -5,6 +5,7 @@ import type { OpenCode } from "./client.js"
 
 export * from "./generated/index"
 export { OpenCode } from "./client.js"
+export { Vex } from "./client.js"
 export type {
   AgentApi,
   AppApi,
@@ -50,5 +51,6 @@ export { SessionMessage } from "@opencode/schema/session-message"
 export { Skill } from "@opencode/schema/skill"
 export { Prompt } from "@opencode/schema/prompt"
 export { PromptInput } from "@opencode/schema/prompt-input"
-export type { OpenCodeEvent } from "@opencode/protocol/groups/event"
-export type OpenCodeClient = Effect.Success<ReturnType<typeof OpenCode.make>>
+export type { OpenCodeEvent, OpenCodeEvent as VexEvent } from "@opencode/protocol/groups/event"
+export type VexClient = Effect.Success<ReturnType<typeof OpenCode.make>>
+export type OpenCodeClient = VexClient

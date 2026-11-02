@@ -46,7 +46,7 @@ constructor(state: DurableObjectState) {
 }
 ```
 
-Wrangler selects OpenCode's Workerd-safe implementations through the `workerd` package condition. Cloudflare may evict
+Wrangler selects Vex's Workerd-safe implementations through the `workerd` package condition. Cloudflare may evict
 a Durable Object without running cleanup, so correctness does not depend on `close()` being called.
 
 ```jsonc title="wrangler.jsonc"
@@ -57,7 +57,7 @@ a Durable Object without running cleanup, so correctness does not depend on `clo
 
 ## Customize
 
-Customize your OpenCode instance by registering plugins bundled with your
+Customize your Vex instance by registering plugins bundled with your
 Worker. Pass plugins to `OpenCodeWorkerd.create()` to customize agents, models,
 tools, and other behavior:
 

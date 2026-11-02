@@ -2,8 +2,8 @@
 title: "JavaScript"
 ---
 
-`@opencode/client` is the TypeScript client for the OpenCode HTTP
-API. Use it when your application connects to an OpenCode server over the
+`@opencode/client` is the TypeScript client for the Vex HTTP
+API. Use it when your application connects to a Vex server over the
 network. Its native types and methods are generated from the same contract as the
 [API reference](/api). Plugin RPC types come from imported RPC definitions.
 
@@ -18,9 +18,9 @@ bun add @opencode/client
 Create a client with the server URL, then call methods grouped by API resource:
 
 ```ts
-import { OpenCode } from "@opencode/client"
+import { Vex } from "@opencode/client"
 
-const client = OpenCode.make({
+const client = Vex.make({
   baseUrl: "http://localhost:4096",
 })
 
@@ -36,15 +36,15 @@ await client.session.prompt({
 
 ## Headers and requests
 
-Pass default authentication or application headers to `OpenCode.make` with
+Pass default authentication or application headers to `Vex.make` with
 `headers`. You can also supply a custom `fetch` implementation. Each operation
 accepts request options as its final argument for an `AbortSignal` or
 per-request headers. Event subscriptions are the exception: they accept only
 subscriber-local cancellation and use the base client's headers.
 
 ```ts
-const client = OpenCode.make({
-  baseUrl: "https://opencode.example.com",
+const client = Vex.make({
+  baseUrl: "https://vex.example.com",
   headers: {
     authorization: `Bearer ${process.env.OPENCODE_TOKEN}`,
   },
@@ -80,7 +80,7 @@ subscriber receives the current `server.connected` marker, not past business eve
 Import a plugin's shared contract and pass it to `client.rpc`:
 
 ```ts
-import { OpenCode } from "@opencode/client"
+import { Vex } from "@opencode/client"
 import { Acme } from "opencode-acme-plugin/rpc"
 
 const acme = client.rpc(Acme)
@@ -147,11 +147,11 @@ API from `@opencode/client/service`.
 - `Service.headers(endpoint)` creates the authentication headers for a client.
 
 ```ts
-import { OpenCode } from "@opencode/client"
+import { Vex } from "@opencode/client"
 import { Service } from "@opencode/client/service"
 
 const endpoint = await Service.ensure()
-const client = OpenCode.make({
+const client = Vex.make({
   baseUrl: endpoint.url,
   headers: Service.headers(endpoint),
 })
@@ -175,4 +175,4 @@ const endpoint = await Service.ensure({
 ```
 
 Omit these options to use the standard registration path and
-`opencode serve --service` command.
+`vex serve --service` command.

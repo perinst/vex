@@ -1,4 +1,5 @@
 export * as OpenCodeWorkerd from "./workerd"
+export * as VexWorkerd from "./workerd"
 
 import { WorkerdProfile } from "./internal/workerd"
 import type { LogOptions } from "./logging"

@@ -14,12 +14,12 @@ bun add @opencode/sdk effect
 Create the host inside `Effect.scoped`, then use its generated API groups or the `sessions` alias.
 
 ```ts
-import { AbsolutePath, Location, OpenCode } from "@opencode/sdk/effect"
+import { AbsolutePath, Location, Vex } from "@opencode/sdk/effect"
 import { Effect } from "effect"
 
 const program = Effect.scoped(
   Effect.gen(function* () {
-    const opencode = yield* OpenCode.create()
+    const opencode = yield* Vex.create()
     const session = yield* opencode.sessions.create({
       location: Location.Ref.make({ directory: AbsolutePath.make("/workspace") }),
     })
@@ -51,14 +51,14 @@ background.
 import { Effect, Stream } from "effect"
 
 yield* opencode.events.subscribe().pipe(
-  Stream.runForEach((event) => Effect.logInfo("OpenCode event", { type: event.type })),
+  Stream.runForEach((event) => Effect.logInfo("Vex event", { type: event.type })),
   Effect.forkScoped,
 )
 ```
 
 ## Customize
 
-Customize your OpenCode instance by registering Effect plugins. Use the embedded
+Customize your Vex instance by registering Effect plugins. Use the embedded
 host to customize agents, models, tools, and other behavior:
 
 ```ts
@@ -86,16 +86,16 @@ hooks, transforms, tools, and the complete plugin context.
 
 ## Layer
 
-Use `OpenCode.layer()` when the embedded host should be an application service.
+Use `Vex.layer()` when the embedded host should be an application service.
 
 ```ts
-import { OpenCode } from "@opencode/sdk/effect"
+import { Vex } from "@opencode/sdk/effect"
 import { Effect } from "effect"
 
 const program = Effect.gen(function* () {
-  const opencode = yield* OpenCode.Service
+  const opencode = yield* Vex.Service
   return yield* opencode.server.info()
 })
 
-const health = await Effect.runPromise(program.pipe(Effect.provide(OpenCode.layer())))
+const health = await Effect.runPromise(program.pipe(Effect.provide(Vex.layer())))
 ```

@@ -4,9 +4,9 @@
   "version": "2.0.28",
   "type": "module",
   "license": "MIT",
-  "homepage": "https://opencode.ai",
+  "homepage": "https://github.com/perinst/vex",
   "author": {
-    "name": "OpenCode",
+    "name": "Vex",
     "email": "hello@opencode.ai"
   },
   "scripts": {

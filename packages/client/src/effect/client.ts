@@ -1,4 +1,5 @@
 export * as OpenCode from "./client.js"
+export * as Vex from "./client.js"
 
 import { Cause, Context, Effect, Stream } from "effect"
 import { HttpClient, HttpClientRequest } from "effect/http"

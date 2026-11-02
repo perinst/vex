@@ -38,7 +38,7 @@ Save Markdown agents globally for all projects or inside a project:
 .opencode/agents/<name>.md
 ```
 
-OpenCode discovers project `.opencode` directories from the current directory up to the project root. A nested path becomes part of the agent ID:
+Vex discovers project `.opencode` directories from the current directory up to the project root. A nested path becomes part of the agent ID:
 
 ```text
 .opencode/agents/team/reviewer.md  →  team/reviewer
@@ -61,7 +61,7 @@ Explain the relevant code with short examples. Do not edit files.
 
 ### JSONC
 
-Define agents under `agents` in any [OpenCode configuration file](/config):
+Define agents under `agents` in any [Vex configuration file](/config):
 
 ```jsonc title="opencode.jsonc"
 {
@@ -93,7 +93,7 @@ Set the primary agent used when a session has not selected one:
 }
 ```
 
-The selected default must exist, be visible, and support primary use. Otherwise OpenCode uses `build`, then the first visible primary-capable agent. Changing this setting does not replace the agent stored on an existing session.
+The selected default must exist, be visible, and support primary use. Otherwise Vex uses `build`, then the first visible primary-capable agent. Changing this setting does not replace the agent stored on an existing session.
 
 ## Modes
 
@@ -130,12 +130,12 @@ Subagents run with fresh context in foreground or background child sessions. The
 
 ## Builtins
 
-OpenCode includes these visible agents:
+Vex includes these visible agents:
 
 | Agent | Mode | Purpose |
 | --- | --- | --- |
 | **Build** (`build`) | `primary` | Default coding agent. Tools are allowed by default; sensitive environment-file reads and access outside the workspace ask for approval. |
-| **Plan** (`plan`) | `primary` | Explores and plans without editing normal project files. It may write OpenCode plan files when asked, and shell commands remain permission-controlled. |
+| **Plan** (`plan`) | `primary` | Explores and plans without editing normal project files. It may write Vex plan files when asked, and shell commands remain permission-controlled. |
 | **General** (`general`) | `subagent` | Handles research and multi-step work with broad tool access, but cannot launch more subagents. |
 | **Explore** (`explore`) | `subagent` | Searches and reads code or web sources without editing files. |
 
@@ -180,7 +180,7 @@ Global `permissions` apply before agent-specific rules, so later agent rules can
 
 ### Description
 
-`description` explains the agent's purpose. Add it to subagents because OpenCode shows it to the model choosing which agent to launch:
+`description` explains the agent's purpose. Add it to subagents because Vex shows it to the model choosing which agent to launch:
 
 ```yaml
 description: Reviews database migrations for safety
@@ -269,7 +269,7 @@ The last matching rule wins, so put broad rules before exceptions. Common action
 | `webfetch`, `websearch` | Web tools |
 | `skill` | Skill loading |
 
-For `read`, `edit`, and `external_directory` resources, OpenCode expands `~` and `$HOME`:
+For `read`, `edit`, and `external_directory` resources, Vex expands `~` and `$HOME`:
 
 ```jsonc
 { "action": "read", "resource": "~/notes/**", "effect": "allow" }
@@ -285,7 +285,7 @@ Shell resources remain raw command text and do not expand those values.
 steps: 8
 ```
 
-On the final step, OpenCode removes tools and asks the model to summarize in text. New user input resets the allowance.
+On the final step, Vex removes tools and asks the model to summarize in text. New user input resets the allowance.
 
 ### Hidden
 

@@ -53,7 +53,7 @@ Each rule requires three string fields:
 | `deny`  | Block the operation                 |
 | `ask`   | Wait for a decision from the client |
 
-If no rule matches, OpenCode uses `ask`.
+If no rule matches, Vex uses `ask`.
 
 ## Matching
 
@@ -84,7 +84,7 @@ A shell pattern ending in ` *` also matches the command without arguments:
 
 This matches both `git status` and `git status --short`.
 
-OpenCode combines rules in order and uses the last match. Lower-priority
+Vex combines rules in order and uses the last match. Lower-priority
 configuration is loaded first, global rules are appended next, and agent rules
 are appended last.
 
@@ -220,7 +220,7 @@ Shipped agents append these policies:
 | `summary`    | Denies all actions                                                              |
 | `compaction` | Keeps the base policy                                                          |
 
-OpenCode also allows external-directory access to its managed tool-output,
+Vex also allows external-directory access to its managed tool-output,
 shell-output, temporary, and global configuration directories. The underlying
 `read`, `edit`, or other action still uses its own rules. Later global and agent
 rules can override these defaults.

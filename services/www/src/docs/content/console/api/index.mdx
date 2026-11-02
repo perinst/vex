@@ -72,7 +72,7 @@ header. A different `x-org-id` returns `403`.
 
 ## Device flow
 
-OpenCode signs in with the OAuth device authorization grant (RFC 8628). Other CLIs can use the same flow.
+Vex signs in with the OAuth device authorization grant (RFC 8628). Other CLIs can use the same flow.
 
 1. Request a device code. Send `supports_org_scope=true` to bind the token to a workspace.
 
@@ -113,8 +113,8 @@ Each refresh token can be used once. Reusing an old refresh token revokes the wh
 
 ## Workspace config
 
-`GET /api/v2/config` returns the providers and models available to the workspace in the OpenCode V2
-[config](/config) format. OpenCode loads it after `/connect`.
+`GET /api/v2/config` returns the providers and models available to the workspace in the Vex V2
+[config](/config) format. Vex loads it after `/connect`.
 
 ```bash
 curl --fail-with-body "${CONSOLE_URL}/api/v2/config" \
@@ -125,7 +125,7 @@ curl --fail-with-body "${CONSOLE_URL}/api/v2/config" \
 {
   "providers": {
     "opencode": {
-      "name": "OpenCode",
+      "name": "Vex",
       "env": ["OPENCODE_CONSOLE_TOKEN"],
       "package": "aisdk:@ai-sdk/openai-compatible",
       "settings": {
