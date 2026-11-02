@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@opencode/latex",
+  "name": "@vex/latex",
   "version": "2.0.28",
   "private": true,
   "type": "module",
@@ -13,7 +13,7 @@
     "typecheck": "tsgo --noEmit"
   },
   "dependencies": {
-    "@opencode/plugin": "workspace:*",
+    "@vex/plugin": "workspace:*",
     "@opentui/core": "catalog:",
     "string-width": "catalog:"
   },

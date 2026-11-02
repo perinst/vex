@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@opencode/protocol",
+  "name": "@vex/protocol",
   "version": "2.0.28",
   "type": "module",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "typecheck": "tsgo --noEmit"
   },
   "dependencies": {
-    "@opencode/schema": "workspace:*",
+    "@vex/schema": "workspace:*",
     "effect": "catalog:"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@opencode/plugin-browser",
+  "name": "@vex/plugin-browser",
   "version": "2.0.28",
   "description": "OpenCode's desktop browser plugin",
   "type": "module",
@@ -27,8 +27,8 @@
     "test": "bun test"
   },
   "dependencies": {
-    "@opencode/plugin": "workspace:*",
-    "@opencode/schema": "workspace:*",
+    "@vex/plugin": "workspace:*",
+    "@vex/schema": "workspace:*",
     "effect": "catalog:"
   },
   "devDependencies": {

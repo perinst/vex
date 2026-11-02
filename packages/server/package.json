@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@opencode/server",
+  "name": "@vex/server",
   "version": "2.0.28",
   "type": "module",
   "license": "MIT",
@@ -27,17 +27,17 @@
   "dependencies": {
     "@effect/platform-node": "catalog:",
     "@effect/platform-node-shared": "catalog:",
-    "@opencode/core": "workspace:*",
-    "@opencode/protocol": "workspace:*",
-    "@opencode/schema": "workspace:*",
-    "@opencode/simulation": "workspace:*",
-    "@opencode/util": "workspace:*",
+    "@vex/core": "workspace:*",
+    "@vex/protocol": "workspace:*",
+    "@vex/schema": "workspace:*",
+    "@vex/simulation": "workspace:*",
+    "@vex/util": "workspace:*",
     "effect": "catalog:"
   },
   "devDependencies": {
     "@opencode-ai/pty": "0.2.0",
-    "@opencode/client": "workspace:*",
-    "@opencode/plugin": "workspace:*",
+    "@vex/client": "workspace:*",
+    "@vex/plugin": "workspace:*",
     "@tsconfig/bun": "catalog:",
     "@types/bun": "catalog:",
     "@typescript/native-preview": "catalog:",
