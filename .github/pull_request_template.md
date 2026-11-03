@@ -1,6 +1,6 @@
-### Issue for this PR
+### Related issue (optional)
 
-Closes #
+<!-- Add an issue link if relevant. -->
 
 ### Type of change
 
