@@ -15,7 +15,6 @@ import { useLocal } from "../../context/local"
 import { useTheme, useThemes } from "../../context/theme"
 import { tint } from "../../theme/color"
 import { createAnimatable, tween } from "../../ui/animation"
-import { EmptyBorder, SplitBorder } from "../../ui/border"
 import { useTuiPaths, useTuiTerminalEnvironment } from "../../context/runtime"
 import { useClipboard } from "../../context/clipboard"
 import { Spinner } from "../spinner"
@@ -1661,12 +1660,9 @@ export function Prompt(props: PromptProps) {
       <box ref={(r: BoxRenderable) => (anchor = r)} visible={props.visible !== false} width="100%">
         <box
           width="100%"
-          border={["left"]}
+          border={["top", "right", "bottom", "left"]}
+          borderStyle="rounded"
           borderColor={borderHighlight()}
-          customBorderChars={{
-            ...SplitBorder.customBorderChars,
-            bottomLeft: "╹",
-          }}
         >
           <box
             paddingLeft={dimensions().width < 44 ? 1 : 2}
@@ -1849,32 +1845,6 @@ export function Prompt(props: PromptProps) {
               />
             </box>
           </box>
-        </box>
-        <box
-          height={1}
-          border={["left"]}
-          borderColor={borderHighlight()}
-          customBorderChars={{
-            ...EmptyBorder,
-            vertical: promptBg().a !== 0 ? "╹" : " ",
-          }}
-        >
-          <box
-            height={1}
-            border={["bottom"]}
-            borderColor={promptBg()}
-            customBorderChars={
-              promptBg().a !== 0
-                ? {
-                    ...EmptyBorder,
-                    horizontal: "▀",
-                  }
-                : {
-                    ...EmptyBorder,
-                    horizontal: " ",
-                  }
-            }
-          />
         </box>
         <box width="100%" flexDirection="row" justifyContent="space-between" gap={2}>
           <Slot path="prompt.footer" input={footerInput()}>
