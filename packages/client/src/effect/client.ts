@@ -1,4 +1,5 @@
 export * as OpenCode from "./client.js"
+export * as Vex from "./client.js"
 
 import { Cause, Context, Effect, Stream } from "effect"
 import { HttpClient, HttpClientRequest } from "effect/http"
@@ -7,7 +8,7 @@ import { ClientError, OpenCode } from "./generated/index.js"
 import { RpcClientRuntime } from "./rpc.js"
 import type { RpcCallOptions } from "../promise/rpc.js"
 
-const CurrentHeaders = Context.Reference<RpcCallOptions["headers"]>("@opencode/client/effect/rpc/headers", {
+const CurrentHeaders = Context.Reference<RpcCallOptions["headers"]>("@vex/client/effect/rpc/headers", {
   defaultValue: () => undefined,
 })
 

@@ -3,12 +3,12 @@
 import { $ } from "bun"
 import { mkdir, rm } from "fs/promises"
 import path from "path"
-import { Script } from "@opencode/script"
-import { embed } from "@opencode/script/highlights"
+import { Script } from "@vex/script"
+import { embed } from "@vex/script/highlights"
 import { createSolidTransformPlugin } from "@opentui/solid/bun-plugin"
 import type { BunPlugin } from "bun"
 import pkg from "../package.json"
-import { discoverPluginRuntimeSpecifiers, pluginRuntimeLoaderCode } from "@opencode/plugin/runtime-modules"
+import { discoverPluginRuntimeSpecifiers, pluginRuntimeLoaderCode } from "@vex/plugin/runtime-modules"
 import { buildAppArchive } from "./app-assets"
 import { verifyArtifact, verifySimulationGraph } from "./verify-artifact"
 import { resolveOpencodePty } from "./opencode-pty"
@@ -211,7 +211,7 @@ export default { path: file, version: ${JSON.stringify(opencodePty.version)}, sh
     path.join(outdir, name, "package.json"),
     JSON.stringify(
       {
-        name: `@opencode/${name}`,
+        name: `@vex/${name}`,
         version: Script.version,
         license: "MIT",
         repository: { type: "git", url: "git+https://github.com/anomalyco/opencode.git" },

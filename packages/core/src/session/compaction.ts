@@ -13,11 +13,11 @@ import {
   type ToolEntry,
   UnknownProviderError,
   type Usage,
-} from "@opencode/ai"
-import type { StreamOptions } from "@opencode/ai/route"
-import type { SessionCompactionResult } from "@opencode/plugin/effect/session"
-import type { SessionError } from "@opencode/schema/session-error"
-import { makeLocationNode } from "@opencode/util/effect/app-node"
+} from "@vex/ai"
+import type { StreamOptions } from "@vex/ai/route"
+import type { SessionCompactionResult } from "@vex/plugin/effect/session"
+import type { SessionError } from "@vex/schema/session-error"
+import { makeLocationNode } from "@vex/util/effect/app-node"
 import { Context, Effect, Layer, Result, Stream } from "effect"
 import { Agent } from "../agent.js"
 import { Bus } from "../bus.js"

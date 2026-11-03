@@ -1,10 +1,10 @@
 import { createMemo, createSignal, For, Show } from "solid-js"
 import { createStore } from "solid-js/store"
 import { createResizeObserver } from "@solid-primitives/resize-observer"
-import { Menu } from "@opencode/ui/menu"
-import { Tooltip } from "@opencode/ui/tooltip"
-import { Icon } from "@opencode/ui/icon"
-import { getFilename, sameDirectory } from "@opencode/util/path"
+import { Menu } from "@vex/ui/menu"
+import { Tooltip } from "@vex/ui/tooltip"
+import { Icon } from "@vex/ui/icon"
+import { getFilename, sameDirectory } from "@vex/util/path"
 import { useLanguage } from "@/runtime/i18n/language"
 
 export function PromptWorkspaceSelector(props: {

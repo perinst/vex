@@ -10,8 +10,8 @@ import {
   type Media,
   Message,
   SystemPart,
-} from "@opencode/ai"
-import type { StreamOptions } from "@opencode/ai/route"
+} from "@vex/ai"
+import type { StreamOptions } from "@vex/ai/route"
 import type {
   SessionCompaction,
   SessionContext,
@@ -19,13 +19,13 @@ import type {
   SessionRequest,
   SessionRequestKind,
   SessionTitle,
-} from "@opencode/plugin/effect/session"
-import type { Agent } from "@opencode/schema/agent"
-import type { Model } from "@opencode/schema/model"
-import type { Content } from "@opencode/schema/tool"
+} from "@vex/plugin/effect/session"
+import type { Agent } from "@vex/schema/agent"
+import type { Model } from "@vex/schema/model"
+import type { Content } from "@vex/schema/tool"
 import { Cause, Context, Effect, Layer, Result, Stream } from "effect"
 import { HttpClientRequest, HttpClientResponse } from "effect/http"
-import { makeLocationNode } from "@opencode/util/effect/app-node"
+import { makeLocationNode } from "@vex/util/effect/app-node"
 import { App } from "../app.js"
 import { Permission } from "../permission.js"
 import { PluginHooks } from "../plugin/hooks.js"

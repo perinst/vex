@@ -1,5 +1,5 @@
 import { NodeFileSystem } from "@effect/platform-node"
-import { Global } from "@opencode/util/global"
+import { Global } from "@vex/util/global"
 import { afterEach, beforeEach, expect, test } from "bun:test"
 import { Effect, FileSystem } from "effect"
 import fs from "node:fs/promises"
@@ -110,7 +110,7 @@ test("pair --remote without a terminal fails before enabling anything, and help 
   expect(pair.exitCode).toBe(1)
   expect(pair.output).toBe(
     [
-      "This will expose your OpenCode server to the internet.",
+      "This will expose your Vex server to the internet.",
       "Traffic is end-to-end encrypted, and access requires your server password.",
       "To pair locally instead, run `opencode pair` without the --remote flag.",
       "Run interactively or pass --yes to continue.",

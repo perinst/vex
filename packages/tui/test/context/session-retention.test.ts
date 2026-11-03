@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test"
-import type { OpenCodeEvent } from "@opencode/client"
-import { createData } from "@opencode/client/solid"
+import type { OpenCodeEvent } from "@vex/client"
+import { createData } from "@vex/client/solid"
 import { createGlobalEmitter } from "@solid-primitives/event-bus"
 import { createRoot, createSignal } from "solid-js"
 import { createSessionRetention } from "../../src/context/session-retention"

@@ -6,10 +6,10 @@
  */
 export * as EditTool from "./edit.js"
 
-import type { Context } from "@opencode/plugin/effect/plugin"
-import { ToolFailure } from "@opencode/ai"
-import { FileDiff } from "@opencode/schema/file-diff"
-import { Bom } from "@opencode/util/bom"
+import type { Context } from "@vex/plugin/effect/plugin"
+import { ToolFailure } from "@vex/ai"
+import { FileDiff } from "@vex/schema/file-diff"
+import { Bom } from "@vex/util/bom"
 import { Effect, Schema } from "effect"
 import { Environment } from "../../environment/index.js"
 import { FileMutation } from "../../file-mutation.js"

@@ -1,14 +1,14 @@
 export * as ServerProcess from "./server-process"
 
 import { NodeServices } from "@effect/platform-node"
-import { Service } from "@opencode/client/effect/service"
-import { LayerNode } from "@opencode/util/effect/layer-node"
-import { Global } from "@opencode/util/global"
+import { Service } from "@vex/client/effect/service"
+import { LayerNode } from "@vex/util/effect/layer-node"
+import { Global } from "@vex/util/global"
 import { OPENCODE_ARTIFACT, OPENCODE_CHANNEL, OPENCODE_VERSION } from "./version"
-import { AppProcess } from "@opencode/util/process"
+import { AppProcess } from "@vex/util/process"
 import { randomBytes, randomUUID } from "node:crypto"
 import { Effect, Option, Redacted, Schema } from "effect"
-import { PersistentPty } from "@opencode/schema/persistent-pty"
+import { PersistentPty } from "@vex/schema/persistent-pty"
 import { HttpServer } from "effect/http"
 import { NetAddress } from "effect/net"
 import { Env } from "./env"
@@ -18,6 +18,7 @@ import { ServiceRegistration } from "./services/service-registration"
 import { RemoteTunnel } from "./services/remote-tunnel"
 import { WebUi } from "./services/web-ui"
 import { databasePath } from "./database-path"
+import { CLI_NAME } from "./cli-name"
 
 export type Mode = "default" | "service" | "stdio"
 
@@ -74,7 +75,7 @@ const processEffect = Effect.fnUntraced(function* (options: Options) {
       // Keep a package-manager or curl install replaceable while the service runs; Desktop updates its own copy.
       if (options.mode === "service" && process.platform === "win32" && RetainedImage.installed(global.home))
         yield* RetainedImage.retain(global.cache, "service")
-      const { start } = yield* Effect.promise(() => import("@opencode/server/process"))
+      const { start } = yield* Effect.promise(() => import("@vex/server/process"))
       const environmentPassword = yield* Env.password
       // Keep the lease credential out of the environment inherited by tools.
       if (options.mode === "stdio") {
@@ -166,7 +167,7 @@ const processEffect = Effect.fnUntraced(function* (options: Options) {
             return yield* Effect.fail(
               new Error(
                 `Managed service port ${port} on ${hostname} is already in use by another process. ` +
-                  "Configure another port with `opencode service set port <port>` and start the service again.",
+                  `Configure another port with \`${CLI_NAME} service set port <port>\` and start the service again.`,
                 { cause: error },
               ),
             )

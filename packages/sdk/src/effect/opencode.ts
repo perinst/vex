@@ -1,8 +1,8 @@
 export * as OpenCode from "./opencode"
 
-import { OpenCode, type OpenCodeClient } from "@opencode/client/effect"
-import type { Session } from "@opencode/core/session"
-import type { Workspace } from "@opencode/core/workspace"
+import { OpenCode, type OpenCodeClient } from "@vex/client/effect"
+import type { Session } from "@vex/core/session"
+import type { Workspace } from "@vex/core/workspace"
 import { Context, Effect, Layer } from "effect"
 import type { Config, Scope } from "effect"
 import { FetchHttpClient, HttpClient } from "effect/http"

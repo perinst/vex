@@ -1,5 +1,5 @@
-import { Tabs } from "@opencode/ui/tabs"
-import { useDialog } from "@opencode/ui/context/dialog"
+import { Tabs } from "@vex/ui/tabs"
+import { useDialog } from "@vex/ui/context/dialog"
 import {
   createEffect,
   createMemo,

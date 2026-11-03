@@ -1,4 +1,4 @@
-import { markdown } from "@opencode/ui/storybook/fixtures"
+import { markdown } from "@vex/ui/storybook/fixtures"
 import { createSignal, onCleanup } from "solid-js"
 import { Markdown } from "./markdown"
 

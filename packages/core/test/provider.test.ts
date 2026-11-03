@@ -1,29 +1,33 @@
 import { describe, expect, test } from "bun:test"
 import { Effect } from "effect"
-import { Provider } from "@opencode/core/provider"
+import { Provider } from "@vex/core/provider"
 
 describe("Provider", () => {
+  test("migrates persisted native package names to the Vex scope", () => {
+    expect(Provider.packageName("@opencode-ai/ai/providers/openai")).toBe("@vex/ai/providers/openai")
+  })
+
   test("loads bundled native provider entrypoints", async () => {
     const packages = [
-      "@opencode/ai/providers/baseten",
-      "@opencode/ai/providers/cerebras",
-      "@opencode/ai/providers/cloudflare-ai-gateway",
-      "@opencode/ai/providers/cloudflare-workers-ai",
-      "@opencode/ai/providers/cohere",
-      "@opencode/ai/providers/cohere/chat",
-      "@opencode/ai/providers/deepinfra",
-      "@opencode/ai/providers/deepseek",
-      "@opencode/ai/providers/fireworks",
-      "@opencode/ai/providers/google-vertex",
-      "@opencode/ai/providers/google-vertex/gemini",
-      "@opencode/ai/providers/google-vertex/interactions",
-      "@opencode/ai/providers/google-vertex/chat",
-      "@opencode/ai/providers/google-vertex/responses",
-      "@opencode/ai/providers/google-vertex/messages",
-      "@opencode/ai/providers/groq",
-      "@opencode/ai/providers/mistral",
-      "@opencode/ai/providers/togetherai",
-      "@opencode/ai/providers/vercel-ai-gateway",
+      "@vex/ai/providers/baseten",
+      "@vex/ai/providers/cerebras",
+      "@vex/ai/providers/cloudflare-ai-gateway",
+      "@vex/ai/providers/cloudflare-workers-ai",
+      "@vex/ai/providers/cohere",
+      "@vex/ai/providers/cohere/chat",
+      "@vex/ai/providers/deepinfra",
+      "@vex/ai/providers/deepseek",
+      "@vex/ai/providers/fireworks",
+      "@vex/ai/providers/google-vertex",
+      "@vex/ai/providers/google-vertex/gemini",
+      "@vex/ai/providers/google-vertex/interactions",
+      "@vex/ai/providers/google-vertex/chat",
+      "@vex/ai/providers/google-vertex/responses",
+      "@vex/ai/providers/google-vertex/messages",
+      "@vex/ai/providers/groq",
+      "@vex/ai/providers/mistral",
+      "@vex/ai/providers/togetherai",
+      "@vex/ai/providers/vercel-ai-gateway",
     ]
 
     for (const specifier of packages) {

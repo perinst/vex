@@ -1,95 +1,95 @@
 import { NodeFileSystem } from "@effect/platform-node"
-import { compile, emitEffectImported, emitEffectShape, emitPromise, write } from "@opencode/httpapi-codegen"
-import { ClientApi, effectOmitEndpoints, groupNames, promiseOmitEndpoints } from "@opencode/protocol/client"
-import { Agent } from "@opencode/schema/agent"
-import { Command } from "@opencode/schema/command"
-import { Config } from "@opencode/schema/config"
-import { Credential } from "@opencode/schema/credential"
-import { Event } from "@opencode/schema/event"
-import { EventLog } from "@opencode/schema/event-log"
-import { FileDiff } from "@opencode/schema/file-diff"
-import { FileSystem } from "@opencode/schema/filesystem"
-import { Form } from "@opencode/schema/form"
-import { Instruction } from "@opencode/schema/instruction"
-import { InstructionEntry } from "@opencode/schema/instruction-entry"
-import { Integration } from "@opencode/schema/integration"
-import { Location } from "@opencode/schema/location"
-import { Mcp } from "@opencode/schema/mcp"
-import { Model } from "@opencode/schema/model"
-import { Money } from "@opencode/schema/money"
-import { Permission } from "@opencode/schema/permission"
-import { PermissionSaved } from "@opencode/schema/permission-saved"
-import { Plugin } from "@opencode/schema/plugin"
-import { Project } from "@opencode/schema/project"
-import { Worktree } from "@opencode/schema/worktree"
-import { AgentAttachment, FileAttachment, Prompt, PromptMention } from "@opencode/schema/prompt"
-import { PromptInput } from "@opencode/schema/prompt-input"
-import { Provider } from "@opencode/schema/provider"
-import { Pty } from "@opencode/schema/pty"
-import { PtyTicket } from "@opencode/schema/pty-ticket"
-import { Question } from "@opencode/schema/question"
-import { Reference } from "@opencode/schema/reference"
-import { AbsolutePath, RelativePath } from "@opencode/schema/schema"
-import { Session } from "@opencode/schema/session"
-import { SessionMessage } from "@opencode/schema/session-message"
-import { SessionInbox } from "@opencode/schema/session-inbox"
-import { Shell } from "@opencode/schema/shell"
-import { Skill } from "@opencode/schema/skill"
-import { Snapshot } from "@opencode/schema/snapshot"
-import { Vcs } from "@opencode/schema/vcs"
-import { WebSearch } from "@opencode/schema/websearch"
-import { Workspace } from "@opencode/schema/workspace"
-import { SessionsCursor } from "@opencode/protocol/groups/session"
+import { compile, emitEffectImported, emitEffectShape, emitPromise, write } from "@vex/httpapi-codegen"
+import { ClientApi, effectOmitEndpoints, groupNames, promiseOmitEndpoints } from "@vex/protocol/client"
+import { Agent } from "@vex/schema/agent"
+import { Command } from "@vex/schema/command"
+import { Config } from "@vex/schema/config"
+import { Credential } from "@vex/schema/credential"
+import { Event } from "@vex/schema/event"
+import { EventLog } from "@vex/schema/event-log"
+import { FileDiff } from "@vex/schema/file-diff"
+import { FileSystem } from "@vex/schema/filesystem"
+import { Form } from "@vex/schema/form"
+import { Instruction } from "@vex/schema/instruction"
+import { InstructionEntry } from "@vex/schema/instruction-entry"
+import { Integration } from "@vex/schema/integration"
+import { Location } from "@vex/schema/location"
+import { Mcp } from "@vex/schema/mcp"
+import { Model } from "@vex/schema/model"
+import { Money } from "@vex/schema/money"
+import { Permission } from "@vex/schema/permission"
+import { PermissionSaved } from "@vex/schema/permission-saved"
+import { Plugin } from "@vex/schema/plugin"
+import { Project } from "@vex/schema/project"
+import { Worktree } from "@vex/schema/worktree"
+import { AgentAttachment, FileAttachment, Prompt, PromptMention } from "@vex/schema/prompt"
+import { PromptInput } from "@vex/schema/prompt-input"
+import { Provider } from "@vex/schema/provider"
+import { Pty } from "@vex/schema/pty"
+import { PtyTicket } from "@vex/schema/pty-ticket"
+import { Question } from "@vex/schema/question"
+import { Reference } from "@vex/schema/reference"
+import { AbsolutePath, RelativePath } from "@vex/schema/schema"
+import { Session } from "@vex/schema/session"
+import { SessionMessage } from "@vex/schema/session-message"
+import { SessionInbox } from "@vex/schema/session-inbox"
+import { Shell } from "@vex/schema/shell"
+import { Skill } from "@vex/schema/skill"
+import { Snapshot } from "@vex/schema/snapshot"
+import { Vcs } from "@vex/schema/vcs"
+import { WebSearch } from "@vex/schema/websearch"
+import { Workspace } from "@vex/schema/workspace"
+import { SessionsCursor } from "@vex/protocol/groups/session"
 import { Effect, Schema } from "effect"
 import { fileURLToPath } from "url"
 
 const promiseContract = compile(ClientApi, { groupNames, omitEndpoints: promiseOmitEndpoints })
 const effectContract = compile(ClientApi, { groupNames, omitEndpoints: effectOmitEndpoints })
 const effectTypeReferences = [
-  ...namespaceTypes("Agent", "@opencode/schema/agent", Agent),
-  ...namespaceTypes("Command", "@opencode/schema/command", Command),
-  ...namespaceTypes("Config", "@opencode/schema/config", Config),
-  ...namespaceTypes("Credential", "@opencode/schema/credential", Credential),
-  ...namespaceTypes("Event", "@opencode/schema/event", Event),
-  ...namespaceTypes("EventLog", "@opencode/schema/event-log", EventLog),
-  ...namespaceTypes("FileDiff", "@opencode/schema/file-diff", FileDiff),
-  ...namespaceTypes("FileSystem", "@opencode/schema/filesystem", FileSystem),
-  ...namespaceTypes("Form", "@opencode/schema/form", Form),
-  ...namespaceTypes("Instruction", "@opencode/schema/instruction", Instruction),
-  ...namespaceTypes("InstructionEntry", "@opencode/schema/instruction-entry", InstructionEntry),
-  ...namespaceTypes("Integration", "@opencode/schema/integration", Integration),
-  typeReference("Location.PublicRef", "@opencode/schema/location", Location.PublicRef),
-  typeReference("Location.PublicInfo", "@opencode/schema/location", Location.PublicInfo),
-  ...namespaceTypes("Mcp", "@opencode/schema/mcp", Mcp),
-  ...namespaceTypes("Model", "@opencode/schema/model", Model),
-  ...namespaceTypes("Money", "@opencode/schema/money", Money),
-  ...namespaceTypes("Permission", "@opencode/schema/permission", Permission),
-  ...namespaceTypes("PermissionSaved", "@opencode/schema/permission-saved", PermissionSaved),
-  ...namespaceTypes("Plugin", "@opencode/schema/plugin", Plugin),
-  ...namespaceTypes("Project", "@opencode/schema/project", Project),
-  ...namespaceTypes("Worktree", "@opencode/schema/worktree", Worktree),
-  ...namespaceTypes("PromptInput", "@opencode/schema/prompt-input", PromptInput),
-  ...namespaceTypes("Provider", "@opencode/schema/provider", Provider),
-  ...namespaceTypes("Pty", "@opencode/schema/pty", Pty),
-  ...namespaceTypes("PtyTicket", "@opencode/schema/pty-ticket", PtyTicket),
-  ...namespaceTypes("Question", "@opencode/schema/question", Question),
-  ...namespaceTypes("Reference", "@opencode/schema/reference", Reference),
-  ...namespaceTypes("Session", "@opencode/schema/session", Session),
-  ...namespaceTypes("SessionMessage", "@opencode/schema/session-message", SessionMessage),
-  ...namespaceTypes("SessionInbox", "@opencode/schema/session-inbox", SessionInbox),
-  ...namespaceTypes("Shell", "@opencode/schema/shell", Shell),
-  ...namespaceTypes("Skill", "@opencode/schema/skill", Skill),
-  ...namespaceTypes("Snapshot", "@opencode/schema/snapshot", Snapshot),
-  ...namespaceTypes("Vcs", "@opencode/schema/vcs", Vcs),
-  ...namespaceTypes("WebSearch", "@opencode/schema/websearch", WebSearch),
-  ...namespaceTypes("Workspace", "@opencode/schema/workspace", Workspace),
-  typeReference("Prompt", "@opencode/schema/prompt", Prompt),
-  typeReference("PromptMention", "@opencode/schema/prompt", PromptMention),
-  typeReference("FileAttachment", "@opencode/schema/prompt", FileAttachment),
-  typeReference("AgentAttachment", "@opencode/schema/prompt", AgentAttachment),
-  typeReference("AbsolutePath", "@opencode/schema/schema", AbsolutePath),
-  typeReference("RelativePath", "@opencode/schema/schema", RelativePath),
-  typeReference("SessionsCursor", "@opencode/protocol/groups/session", SessionsCursor),
+  ...namespaceTypes("Agent", "@vex/schema/agent", Agent),
+  ...namespaceTypes("Command", "@vex/schema/command", Command),
+  ...namespaceTypes("Config", "@vex/schema/config", Config),
+  ...namespaceTypes("Credential", "@vex/schema/credential", Credential),
+  ...namespaceTypes("Event", "@vex/schema/event", Event),
+  ...namespaceTypes("EventLog", "@vex/schema/event-log", EventLog),
+  ...namespaceTypes("FileDiff", "@vex/schema/file-diff", FileDiff),
+  ...namespaceTypes("FileSystem", "@vex/schema/filesystem", FileSystem),
+  ...namespaceTypes("Form", "@vex/schema/form", Form),
+  ...namespaceTypes("Instruction", "@vex/schema/instruction", Instruction),
+  ...namespaceTypes("InstructionEntry", "@vex/schema/instruction-entry", InstructionEntry),
+  ...namespaceTypes("Integration", "@vex/schema/integration", Integration),
+  typeReference("Location.PublicRef", "@vex/schema/location", Location.PublicRef),
+  typeReference("Location.PublicInfo", "@vex/schema/location", Location.PublicInfo),
+  ...namespaceTypes("Mcp", "@vex/schema/mcp", Mcp),
+  ...namespaceTypes("Model", "@vex/schema/model", Model),
+  ...namespaceTypes("Money", "@vex/schema/money", Money),
+  ...namespaceTypes("Permission", "@vex/schema/permission", Permission),
+  ...namespaceTypes("PermissionSaved", "@vex/schema/permission-saved", PermissionSaved),
+  ...namespaceTypes("Plugin", "@vex/schema/plugin", Plugin),
+  ...namespaceTypes("Project", "@vex/schema/project", Project),
+  ...namespaceTypes("Worktree", "@vex/schema/worktree", Worktree),
+  ...namespaceTypes("PromptInput", "@vex/schema/prompt-input", PromptInput),
+  ...namespaceTypes("Provider", "@vex/schema/provider", Provider),
+  ...namespaceTypes("Pty", "@vex/schema/pty", Pty),
+  ...namespaceTypes("PtyTicket", "@vex/schema/pty-ticket", PtyTicket),
+  ...namespaceTypes("Question", "@vex/schema/question", Question),
+  ...namespaceTypes("Reference", "@vex/schema/reference", Reference),
+  ...namespaceTypes("Session", "@vex/schema/session", Session),
+  ...namespaceTypes("SessionMessage", "@vex/schema/session-message", SessionMessage),
+  ...namespaceTypes("SessionInbox", "@vex/schema/session-inbox", SessionInbox),
+  ...namespaceTypes("Shell", "@vex/schema/shell", Shell),
+  ...namespaceTypes("Skill", "@vex/schema/skill", Skill),
+  ...namespaceTypes("Snapshot", "@vex/schema/snapshot", Snapshot),
+  ...namespaceTypes("Vcs", "@vex/schema/vcs", Vcs),
+  ...namespaceTypes("WebSearch", "@vex/schema/websearch", WebSearch),
+  ...namespaceTypes("Workspace", "@vex/schema/workspace", Workspace),
+  typeReference("Prompt", "@vex/schema/prompt", Prompt),
+  typeReference("PromptMention", "@vex/schema/prompt", PromptMention),
+  typeReference("FileAttachment", "@vex/schema/prompt", FileAttachment),
+  typeReference("AgentAttachment", "@vex/schema/prompt", AgentAttachment),
+  typeReference("AbsolutePath", "@vex/schema/schema", AbsolutePath),
+  typeReference("RelativePath", "@vex/schema/schema", RelativePath),
+  typeReference("SessionsCursor", "@vex/protocol/groups/session", SessionsCursor),
 ]
 
 await Effect.runPromise(
@@ -115,7 +115,7 @@ await Effect.runPromise(
           outputTypes: {
             "event.subscribe": {
               name: "OpenCodeEvent",
-              import: 'import type { OpenCodeEvent } from "@opencode/protocol/groups/event"',
+              import: 'import type { OpenCodeEvent } from "@vex/protocol/groups/event"',
             },
           },
         }),

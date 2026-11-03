@@ -1,12 +1,12 @@
 import fs from "node:fs/promises"
 import path from "node:path"
 import { expect } from "bun:test"
-import { Config } from "@opencode/schema/config"
+import { Config } from "@vex/schema/config"
 import { Effect, Schema } from "effect"
 import { tmpdir } from "../../core/test/fixture/tmpdir"
 import { it } from "../../core/test/lib/effect"
 import { startServer } from "./fixture/server"
-import { AbsolutePath } from "@opencode/schema/schema"
+import { AbsolutePath } from "@vex/schema/schema"
 
 it.live("returns ordered config entries for the requested directory", () =>
   Effect.gen(function* () {

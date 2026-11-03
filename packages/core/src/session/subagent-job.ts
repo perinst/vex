@@ -1,8 +1,8 @@
 export * as SubagentJob from "./subagent-job.js"
 
 import { Context, Effect, Layer, Scope } from "effect"
-import { Node } from "@opencode/util/effect/app-node"
-import type { LayerNode } from "@opencode/util/effect/layer-node"
+import { Node } from "@vex/util/effect/app-node"
+import type { LayerNode } from "@vex/util/effect/layer-node"
 import { Job } from "../job.js"
 import { Session } from "../session.js"
 import { SubagentCompletion } from "./subagent-completion.js"

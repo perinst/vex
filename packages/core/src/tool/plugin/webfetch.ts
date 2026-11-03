@@ -1,7 +1,7 @@
 export * as WebFetchTool from "./webfetch.js"
 
-import type { Context } from "@opencode/plugin/effect/plugin"
-import { ToolFailure } from "@opencode/ai"
+import type { Context } from "@vex/plugin/effect/plugin"
+import { ToolFailure } from "@vex/ai"
 import { Duration, Effect, Schema } from "effect"
 import { HttpClient, type HttpClientError, HttpClientRequest, HttpClientResponse } from "effect/http"
 import { Parser } from "htmlparser2"

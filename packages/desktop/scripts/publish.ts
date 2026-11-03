@@ -1,6 +1,6 @@
 #!/usr/bin/env bun
 
-import { Script } from "@opencode/script"
+import { Script } from "@vex/script"
 import { UpdateArtifact } from "../../../script/update-artifact"
 
 const dryRun = process.argv.includes("--dry-run")

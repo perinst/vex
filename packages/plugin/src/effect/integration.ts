@@ -1,8 +1,8 @@
-import type { ConnectionInfo } from "@opencode/client"
-import type { IntegrationApi } from "@opencode/client/effect/api"
-import { Connection } from "@opencode/schema/connection"
-import { Credential } from "@opencode/schema/credential"
-import { Form } from "@opencode/schema/form"
+import type { ConnectionInfo } from "@vex/client"
+import type { IntegrationApi } from "@vex/client/effect/api"
+import { Connection } from "@vex/schema/connection"
+import { Credential } from "@vex/schema/credential"
+import { Form } from "@vex/schema/form"
 import type { Effect, Scope } from "effect"
 import type { Transform } from "./registration.js"
 

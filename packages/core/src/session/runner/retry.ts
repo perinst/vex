@@ -1,9 +1,9 @@
 export * as SessionRunnerRetry from "./retry.js"
 
-import { AIError, isRetryable } from "@opencode/ai"
-import { Agent } from "@opencode/schema/agent"
-import { Model } from "@opencode/schema/model"
-import { SessionError } from "@opencode/schema/session-error"
+import { AIError, isRetryable } from "@vex/ai"
+import { Agent } from "@vex/schema/agent"
+import { Model } from "@vex/schema/model"
+import { SessionError } from "@vex/schema/session-error"
 import { Clock, Duration, Effect, Pull, Schedule } from "effect"
 import { Bus } from "../../bus.js"
 import type { PluginHooks } from "../../plugin/hooks.js"

@@ -1,19 +1,19 @@
 export * as Bus from "./bus.js"
 
 import { Cause, Clock, Context, Effect, Layer, Option, PubSub, Schema, Stream } from "effect"
-import { Event } from "@opencode/schema/event"
-import type { EventLog } from "@opencode/schema/event-log"
+import { Event } from "@vex/schema/event"
+import type { EventLog } from "@vex/schema/event-log"
 import { and, asc, eq, gt, lte, sql } from "drizzle-orm"
 import { Database } from "./database/database.js"
 import { EventSequenceTable, EventTable } from "./event/sql.js"
-import type { Location } from "@opencode/schema/location"
+import type { Location } from "@vex/schema/location"
 import { KeyedMutex } from "./effect/keyed-mutex.js"
-import { makeGlobalNode } from "@opencode/util/effect/app-node"
+import { makeGlobalNode } from "@vex/util/effect/app-node"
 import { isDeepStrictEqual } from "node:util"
-import { Durable } from "@opencode/schema/durable-event-manifest"
-import { SessionEvent } from "@opencode/schema/session-event"
-import type { SessionID } from "@opencode/schema/session-id"
-import { AbsolutePath } from "@opencode/schema/schema"
+import { Durable } from "@vex/schema/durable-event-manifest"
+import { SessionEvent } from "@vex/schema/session-event"
+import type { SessionID } from "@vex/schema/session-id"
+import { AbsolutePath } from "@vex/schema/schema"
 
 export type Subscriber<D extends Event.Definition = Event.Definition> = (event: Event.Payload<D>) => Effect.Effect<void>
 export type Unsubscribe = Effect.Effect<void>

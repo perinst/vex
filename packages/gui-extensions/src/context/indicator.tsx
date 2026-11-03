@@ -1,8 +1,8 @@
 import { Show, createMemo, type ComponentProps, type JSX } from "solid-js"
-import { ProgressCircle } from "@opencode/ui/progress-circle"
-import { IconButton } from "@opencode/ui/icon-button"
-import { Tooltip } from "@opencode/ui/tooltip"
-import { useI18n } from "@opencode/ui/context/i18n"
+import { ProgressCircle } from "@vex/ui/progress-circle"
+import { IconButton } from "@vex/ui/icon-button"
+import { Tooltip } from "@vex/ui/tooltip"
+import { useI18n } from "@vex/ui/context/i18n"
 import { useExtension, type MountedSession } from "../sdk"
 import { catalogModel, syncCatalog } from "./catalog"
 

@@ -1,9 +1,9 @@
 export * as SkillTool from "./skill.js"
 
-import type { Context } from "@opencode/plugin/effect/plugin"
-import { ToolFailure } from "@opencode/ai"
+import type { Context } from "@vex/plugin/effect/plugin"
+import { ToolFailure } from "@vex/ai"
 import { Effect, Schema } from "effect"
-import { FSUtil } from "@opencode/util/fs-util"
+import { FSUtil } from "@vex/util/fs-util"
 import { Skill } from "../../skill.js"
 import { Permission } from "../../permission.js"
 

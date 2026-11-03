@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test"
 import { measureEditText } from "@opentui/core"
-import type { PromptInput } from "@opencode/schema"
+import type { PromptInput } from "@vex/schema"
 import {
   expandPromptInputPastedText,
   realignPromptInputMentions,

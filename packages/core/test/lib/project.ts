@@ -1,7 +1,7 @@
-import { Database } from "@opencode/core/database/database"
-import { Project } from "@opencode/core/project"
-import { upsertProject } from "@opencode/core/project/sql"
-import { makeGlobalNode } from "@opencode/util/effect/app-node"
+import { Database } from "@vex/core/database/database"
+import { Project } from "@vex/core/project"
+import { upsertProject } from "@vex/core/project/sql"
+import { makeGlobalNode } from "@vex/util/effect/app-node"
 import { Effect, Layer } from "effect"
 
 export const globalProjectNode = makeGlobalNode({

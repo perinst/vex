@@ -1,13 +1,14 @@
 import { cancel, confirm, isCancel, log } from "@clack/prompts"
 import { EOL } from "os"
 import { Effect, Option, Schedule } from "effect"
-import { Service } from "@opencode/client/effect/service"
-import { OpenCode } from "@opencode/client/promise"
+import { Service } from "@vex/client/effect/service"
+import { OpenCode } from "@vex/client/promise"
 import { renderUnicodeCompact } from "uqr"
 import { Commands } from "../commands"
 import { Runtime } from "../../framework/runtime"
 import { RemoteTunnel } from "../../services/remote-tunnel"
 import { ServiceConfig } from "../../services/service-config"
+import { CLI_NAME } from "../../cli-name"
 
 export default Runtime.handler(
   Commands.commands.pair,
@@ -15,7 +16,7 @@ export default Runtime.handler(
     const config = yield* ServiceConfig.read()
     if (config.disabled === true)
       return yield* Effect.fail(
-        new Error("Pairing requires the background service; run `opencode service unset disabled` first"),
+        new Error(`Pairing requires the background service; run \`${CLI_NAME} service unset disabled\` first`),
       )
     if (input.remote && Option.isSome(input.url))
       return yield* Effect.fail(new Error("--remote cannot be combined with --url"))
@@ -62,7 +63,7 @@ export default Runtime.handler(
         `  ssh -L ${url.port}:${url.hostname}:${url.port} <host>`,
         `  If port ${url.port} is busy locally, forward another port and use it in the link.`,
         "",
-        "  To connect from other devices, run `opencode service set hostname 0.0.0.0`.",
+        `  To connect from other devices, run \`${CLI_NAME} service set hostname 0.0.0.0\`.`,
         "",
       ].join(EOL) + EOL,
     )
@@ -70,9 +71,9 @@ export default Runtime.handler(
 )
 
 export const remoteWarning = [
-  "This will expose your OpenCode server to the internet.",
+  "This will expose your Vex server to the internet.",
   "Traffic is end-to-end encrypted, and access requires your server password.",
-  "To pair locally instead, run `opencode pair` without the --remote flag.",
+  `To pair locally instead, run \`${CLI_NAME} pair\` without the --remote flag.`,
 ].join(EOL)
 
 export interface RemoteConsentPrompt {
@@ -102,12 +103,12 @@ export const remoteConsent = Effect.fn("cli.pair.remote-consent")(function* (
   if (!input.yes) {
     const accepted = yield* Effect.promise(terminal.confirm)
     if (isCancel(accepted)) {
-      cancel("Remote access was not enabled. To pair locally, run `opencode pair`.")
+      cancel(`Remote access was not enabled. To pair locally, run \`${CLI_NAME} pair\`.`)
       process.exitCode = 130
       return false
     }
     if (accepted !== true) {
-      log.info("Remote access was not enabled. To pair locally, run `opencode pair`.")
+      log.info(`Remote access was not enabled. To pair locally, run \`${CLI_NAME} pair\`.`)
       return false
     }
   }
@@ -139,7 +140,7 @@ const remoteURL = Effect.fnUntraced(function* (client: ReturnType<typeof OpenCod
     Effect.timeoutOrElse({
       duration: "3 minutes",
       orElse: () =>
-        Effect.fail(new Error("Timed out waiting for the remote tunnel; run `opencode pair --remote` again to retry")),
+        Effect.fail(new Error(`Timed out waiting for the remote tunnel; run \`${CLI_NAME} pair --remote\` again to retry`)),
     }),
   )
 })

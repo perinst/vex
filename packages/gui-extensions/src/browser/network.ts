@@ -1,8 +1,8 @@
 import { net, session, type WebContents } from "electron"
-import type { RpcClient } from "@opencode/client/effect/api"
-import type { Session } from "@opencode/schema/session"
-import { Browser } from "@opencode/plugin-browser/rpc"
-import { BrowserProxy } from "@opencode/plugin-browser/proxy"
+import type { RpcClient } from "@vex/client/effect/api"
+import type { Session } from "@vex/schema/session"
+import { Browser } from "@vex/plugin-browser/rpc"
+import { BrowserProxy } from "@vex/plugin-browser/proxy"
 import { Effect } from "effect"
 import { Base64 } from "effect/encoding"
 

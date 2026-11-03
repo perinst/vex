@@ -1,9 +1,9 @@
-import { Button } from "@opencode/ui/button"
-import { Dialog, DialogBody, DialogFooter, DialogHeader, DialogTitle } from "@opencode/ui/dialog"
-import { Divider } from "@opencode/ui/divider"
-import { Icon } from "@opencode/ui/icon"
-import { TextInput } from "@opencode/ui/text-input"
-import { useDialog } from "@opencode/ui/context/dialog"
+import { Button } from "@vex/ui/button"
+import { Dialog, DialogBody, DialogFooter, DialogHeader, DialogTitle } from "@vex/ui/dialog"
+import { Divider } from "@vex/ui/divider"
+import { Icon } from "@vex/ui/icon"
+import { TextInput } from "@vex/ui/text-input"
+import { useDialog } from "@vex/ui/context/dialog"
 import { useMutation } from "@tanstack/solid-query"
 import {
   type Component,

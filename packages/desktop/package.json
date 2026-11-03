@@ -1,12 +1,12 @@
 {
-  "name": "@opencode/desktop",
+  "name": "@vex/desktop",
   "private": true,
   "version": "2.0.28",
   "type": "module",
   "license": "MIT",
-  "homepage": "https://opencode.ai",
+  "homepage": "https://github.com/perinst/vex",
   "author": {
-    "name": "OpenCode",
+    "name": "Vex",
     "email": "hello@opencode.ai"
   },
   "scripts": {
@@ -35,11 +35,11 @@
     "@brendonovich/vite-plugin-opencode": "0.1.3",
     "@effect/platform-node": "catalog:",
     "@lydell/node-pty": "catalog:",
-    "@opencode/app": "workspace:*",
-    "@opencode/gui-extensions": "workspace:*",
-    "@opencode/client": "workspace:*",
-    "@opencode/schema": "workspace:*",
-    "@opencode/ui": "workspace:*",
+    "@vex/app": "workspace:*",
+    "@vex/gui-extensions": "workspace:*",
+    "@vex/client": "workspace:*",
+    "@vex/schema": "workspace:*",
+    "@vex/ui": "workspace:*",
     "@sentry/solid": "catalog:",
     "@sentry/vite-plugin": "catalog:",
     "@solidjs/router": "catalog:",

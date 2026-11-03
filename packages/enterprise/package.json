@@ -1,5 +1,5 @@
 {
-  "name": "@opencode/enterprise",
+  "name": "@vex/enterprise",
   "version": "2.0.28",
   "private": true,
   "type": "module",
@@ -13,13 +13,13 @@
     "shell-prod": "sst shell --target Teams --stage production"
   },
   "dependencies": {
-    "@opencode/client": "workspace:*",
-    "@opencode/core": "workspace:*",
-    "@opencode/schema": "workspace:*",
+    "@vex/client": "workspace:*",
+    "@vex/core": "workspace:*",
+    "@vex/schema": "workspace:*",
     "@opencode-ai/sdk": "1.18.21",
-    "@opencode/session-ui": "workspace:*",
-    "@opencode/ui": "workspace:*",
-    "@opencode/util": "workspace:*",
+    "@vex/session-ui": "workspace:*",
+    "@vex/ui": "workspace:*",
+    "@vex/util": "workspace:*",
     "aws4fetch": "^1.0.20",
     "@pierre/diffs": "catalog:",
     "@solidjs/router": "catalog:",

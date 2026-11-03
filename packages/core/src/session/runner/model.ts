@@ -1,9 +1,9 @@
 export * as SessionRunnerModel from "./model.js"
 
-import { makeLocationNode } from "@opencode/util/effect/app-node"
-import { LanguageModel } from "@opencode/ai"
-import { Model } from "@opencode/schema/model"
-import { Provider } from "@opencode/schema/provider"
+import { makeLocationNode } from "@vex/util/effect/app-node"
+import { LanguageModel } from "@vex/ai"
+import { Model } from "@vex/schema/model"
+import { Provider } from "@vex/schema/provider"
 import { Context, Effect, Layer, Schema } from "effect"
 import { ModelResolver } from "../../model-resolver.js"
 import { SessionSchema } from "../schema.js"

@@ -1,8 +1,8 @@
 /** @jsxImportSource @opentui/solid */
-import type { FileDiffInfo, LocationRef } from "@opencode/client"
-import type { Vcs } from "@opencode/schema/vcs"
-import { Plugin } from "@opencode/plugin/tui"
-import type { KeymapCommand, Route } from "@opencode/plugin/tui/context"
+import type { FileDiffInfo, LocationRef } from "@vex/client"
+import type { Vcs } from "@vex/schema/vcs"
+import { Plugin } from "@vex/plugin/tui"
+import type { KeymapCommand, Route } from "@vex/plugin/tui/context"
 import {
   MouseButton,
   TextAttributes,

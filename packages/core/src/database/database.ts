@@ -4,12 +4,12 @@ import { EffectDrizzleSqlite } from "./drizzle.js"
 import { sqliteLayer, supportsForeignKeyToggle, supportsTuningPragmas } from "#sqlite"
 import { Context, Effect, Layer, Schema, Semaphore } from "effect"
 import type { SqlClient } from "effect/sql"
-import { Global } from "@opencode/util/global"
+import { Global } from "@vex/util/global"
 import { closeSync, existsSync, openSync } from "node:fs"
 import { chmod } from "node:fs/promises"
 import { isAbsolute, join } from "path"
 import { DatabaseMigration } from "./migration.js"
-import { makeGlobalNode } from "@opencode/util/effect/app-node"
+import { makeGlobalNode } from "@vex/util/effect/app-node"
 
 const makeDatabase = EffectDrizzleSqlite.makeWithDefaults()
 type DatabaseShape = Effect.Success<typeof makeDatabase>

@@ -1,6 +1,6 @@
 export * as ConfigCompactionPlugin from "./compaction.js"
 
-import { define } from "@opencode/plugin/effect/plugin"
+import { define } from "@vex/plugin/effect/plugin"
 import { Effect } from "effect"
 import { Config } from "../../config.js"
 import { SessionCompaction } from "../../session/compaction.js"

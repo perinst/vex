@@ -1,4 +1,4 @@
-import { parsePathLineSuffix } from "@opencode/util/path"
+import { parsePathLineSuffix } from "@vex/util/path"
 import type { Files, LineRange } from "../sdk"
 
 export type ParsedFileLink = {

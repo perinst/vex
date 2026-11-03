@@ -1,9 +1,9 @@
 export * as Reference from "./reference.js"
 
-import { makeLocationNode } from "@opencode/util/effect/app-node"
+import { makeLocationNode } from "@vex/util/effect/app-node"
 import { Context, Effect, Layer, Scope } from "effect"
-import { Reference } from "@opencode/schema/reference"
-import { Global } from "@opencode/util/global"
+import { Reference } from "@vex/schema/reference"
+import { Global } from "@vex/util/global"
 import { Bus } from "./bus.js"
 import { Repository } from "./repository.js"
 import { RepositoryCache } from "./repository-cache.js"
@@ -19,7 +19,7 @@ export type GitSource = Reference.GitSource
 export const Source = Reference.Source
 export type Source = Reference.Source
 
-export { Event } from "@opencode/schema/reference"
+export { Event } from "@vex/schema/reference"
 
 export const Info = Reference.Info
 export type Info = Reference.Info

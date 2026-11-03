@@ -1,32 +1,32 @@
 import { expect, test } from "bun:test"
 import { Schema } from "effect"
-import { Agent } from "@opencode/core/agent"
-import { Session } from "@opencode/core/session"
-import { SessionStore } from "@opencode/core/session/store"
-import { Location } from "@opencode/schema/location"
-import { Model } from "@opencode/schema/model"
-import { Provider } from "@opencode/schema/provider"
-import { Project } from "@opencode/schema/project"
-import { Worktree } from "@opencode/schema/worktree"
-import { Prompt } from "@opencode/schema/prompt"
-import { SessionInbox } from "@opencode/schema/session-inbox"
-import { SessionMessage } from "@opencode/schema/session-message"
-import { Workspace } from "@opencode/schema/workspace"
-import { Command } from "@opencode/schema/command"
-import { Connection } from "@opencode/schema/connection"
-import { Credential } from "@opencode/schema/credential"
-import { FileSystem } from "@opencode/schema/filesystem"
-import { Integration } from "@opencode/schema/integration"
-import { LLM } from "@opencode/schema/llm"
-import { Permission } from "@opencode/schema/permission"
-import { Pty } from "@opencode/schema/pty"
-import { Reference } from "@opencode/schema/reference"
-import { Skill } from "@opencode/schema/skill"
-import { AbsolutePath, optional, statics } from "@opencode/schema/schema"
+import { Agent } from "@vex/core/agent"
+import { Session } from "@vex/core/session"
+import { SessionStore } from "@vex/core/session/store"
+import { Location } from "@vex/schema/location"
+import { Model } from "@vex/schema/model"
+import { Provider } from "@vex/schema/provider"
+import { Project } from "@vex/schema/project"
+import { Worktree } from "@vex/schema/worktree"
+import { Prompt } from "@vex/schema/prompt"
+import { SessionInbox } from "@vex/schema/session-inbox"
+import { SessionMessage } from "@vex/schema/session-message"
+import { Workspace } from "@vex/schema/workspace"
+import { Command } from "@vex/schema/command"
+import { Connection } from "@vex/schema/connection"
+import { Credential } from "@vex/schema/credential"
+import { FileSystem } from "@vex/schema/filesystem"
+import { Integration } from "@vex/schema/integration"
+import { LLM } from "@vex/schema/llm"
+import { Permission } from "@vex/schema/permission"
+import { Pty } from "@vex/schema/pty"
+import { Reference } from "@vex/schema/reference"
+import { Skill } from "@vex/schema/skill"
+import { AbsolutePath, optional, statics } from "@vex/schema/schema"
 
 test("Core reuses the canonical shared schemas", async () => {
-  const schemaAgent = await import("@opencode/schema/agent")
-  const schemaSession = await import("@opencode/schema/session")
+  const schemaAgent = await import("@vex/schema/agent")
+  const schemaSession = await import("@vex/schema/session")
   const [
     coreCommand,
     coreConnection,
@@ -48,25 +48,25 @@ test("Core reuses the canonical shared schemas", async () => {
     coreSchema,
     coreWorkspace,
   ] = await Promise.all([
-    import("@opencode/core/command"),
-    import("@opencode/core/integration/connection"),
-    import("@opencode/core/credential"),
-    import("@opencode/core/filesystem"),
-    import("@opencode/core/integration"),
-    import("@opencode/core/location"),
-    import("@opencode/ai"),
-    import("@opencode/core/model"),
-    import("@opencode/core/permission"),
-    import("@opencode/core/worktree"),
-    import("@opencode/core/pty"),
-    import("@opencode/core/project/schema"),
-    import("@opencode/core/provider"),
-    import("@opencode/core/reference"),
-    import("@opencode/core/session/inbox"),
-    import("@opencode/core/session/message"),
-    import("@opencode/core/skill"),
-    import("@opencode/core/schema"),
-    import("@opencode/core/workspace"),
+    import("@vex/core/command"),
+    import("@vex/core/integration/connection"),
+    import("@vex/core/credential"),
+    import("@vex/core/filesystem"),
+    import("@vex/core/integration"),
+    import("@vex/core/location"),
+    import("@vex/ai"),
+    import("@vex/core/model"),
+    import("@vex/core/permission"),
+    import("@vex/core/worktree"),
+    import("@vex/core/pty"),
+    import("@vex/core/project/schema"),
+    import("@vex/core/provider"),
+    import("@vex/core/reference"),
+    import("@vex/core/session/inbox"),
+    import("@vex/core/session/message"),
+    import("@vex/core/skill"),
+    import("@vex/core/schema"),
+    import("@vex/core/workspace"),
   ])
 
   const schemas = [

@@ -1,5 +1,5 @@
-import { Icon } from "@opencode/ui/icon"
-import { AppIcon } from "@opencode/ui/app-icon"
+import { Icon } from "@vex/ui/icon"
+import { AppIcon } from "@vex/ui/app-icon"
 import { SplitButton, SplitButtonAction, SplitButtonMenuTrigger } from "./split-button"
 
 export default {

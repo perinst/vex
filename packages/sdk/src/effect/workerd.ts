@@ -1,4 +1,5 @@
 export * as OpenCodeWorkerd from "./workerd"
+export * as VexWorkerd from "./workerd"
 
 import { Layer } from "effect"
 import type { Config, Scope } from "effect"

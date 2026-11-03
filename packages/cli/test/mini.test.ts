@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test"
-import { ClientError, OpenCode } from "@opencode/client/promise"
+import { ClientError, OpenCode } from "@vex/client/promise"
 import { OPENCODE_VERSION } from "../src/version"
 import path from "node:path"
 import { createMiniConnection, mergeInput as mergeInteractiveInput, resolveMiniTarget } from "../src/mini"
@@ -128,7 +128,7 @@ describe("mini command", () => {
 
     expect(result.exitCode).toBe(0)
     expect(result.stdout).toMatch(/^  mini[ \t]+Start the minimal interactive interface\r?$/m)
-    expect(result.stdout).toMatch(/^  run[ \t]+Run OpenCode with a message\r?$/m)
+    expect(result.stdout).toMatch(/^  run[ \t]+Run Vex with a message\r?$/m)
   })
 
   test("exposes run without legacy interactive, attach, or command modes", async () => {

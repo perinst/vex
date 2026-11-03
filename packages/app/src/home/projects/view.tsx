@@ -6,19 +6,19 @@ import { isSortable, useSortable } from "@dnd-kit/solid/sortable"
 import { AutoScroller, Feedback, PointerActivationConstraints } from "@dnd-kit/dom"
 import { RestrictToVerticalAxis } from "@dnd-kit/abstract/modifiers"
 import { RestrictToElement } from "@dnd-kit/dom/modifiers"
-import { ScrollView } from "@opencode/ui/scroll-view"
+import { ScrollView } from "@vex/ui/scroll-view"
 import {
   displayName,
   getProjectAvatarSource,
   getProjectAvatarVariant,
   ProjectAvatar,
-} from "@opencode/ui/project-avatar"
-import { Icon } from "@opencode/ui/icon"
-import { IconButton } from "@opencode/ui/icon-button"
-import { Button } from "@opencode/ui/button"
-import { Spinner } from "@opencode/ui/spinner"
-import { Menu } from "@opencode/ui/menu"
-import { Tooltip } from "@opencode/ui/tooltip"
+} from "@vex/ui/project-avatar"
+import { Icon } from "@vex/ui/icon"
+import { IconButton } from "@vex/ui/icon-button"
+import { Button } from "@vex/ui/button"
+import { Spinner } from "@vex/ui/spinner"
+import { Menu } from "@vex/ui/menu"
+import { Tooltip } from "@vex/ui/tooltip"
 import type { HomeProjectSelection, LocalProject } from "@/shell/state/layout"
 import { ServerConnection } from "@/runtime/server/registry"
 import { useLanguage } from "@/runtime/i18n/language"

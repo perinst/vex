@@ -1,7 +1,7 @@
-import { Icon } from "@opencode/ui/icon"
-import { Switch } from "@opencode/ui/switch"
-import { Tabs } from "@opencode/ui/tabs"
-import { Button } from "@opencode/ui/button"
+import { Icon } from "@vex/ui/icon"
+import { Switch } from "@vex/ui/switch"
+import { Tabs } from "@vex/ui/tabs"
+import { Button } from "@vex/ui/button"
 import { useQuery } from "@tanstack/solid-query"
 import {
   type Component,

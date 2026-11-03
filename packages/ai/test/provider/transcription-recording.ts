@@ -1,4 +1,4 @@
-import type { HttpRecorder } from "@opencode/http-recorder"
+import type { HttpRecorder } from "@vex/http-recorder"
 import { Effect } from "effect"
 import { Media } from "../../src/index.js"
 

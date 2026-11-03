@@ -1,24 +1,24 @@
-import { Money } from "@opencode/schema/money"
-import { Agent } from "@opencode/schema/agent"
-import { Session } from "@opencode/core/session"
-import { OpenAIResponses } from "@opencode/ai/protocols/openai-responses"
+import { Money } from "@vex/schema/money"
+import { Agent } from "@vex/schema/agent"
+import { Session } from "@vex/core/session"
+import { OpenAIResponses } from "@vex/ai/protocols/openai-responses"
 import { describe, expect } from "bun:test"
 import { DateTime, Effect } from "effect"
-import { Credential } from "@opencode/core/credential"
-import { Integration } from "@opencode/core/integration"
-import { Location } from "@opencode/core/location"
-import { Model } from "@opencode/core/model"
-import { Plugin } from "@opencode/core/plugin"
-import { PluginHost } from "@opencode/core/plugin/host"
-import { PluginHooks } from "@opencode/core/plugin/hooks"
-import { GithubCopilotPlugin } from "@opencode/core/plugin/provider/github-copilot"
-import { OpenAIPlugin } from "@opencode/core/plugin/provider/openai"
-import { Project } from "@opencode/core/project"
-import { Provider } from "@opencode/core/provider"
-import { AbsolutePath } from "@opencode/core/schema"
-import { SessionModelRequest } from "@opencode/core/session/model-request"
-import { SessionModelTransport } from "@opencode/core/session/model-transport"
-import { SessionRunnerModel } from "@opencode/core/session/runner/model"
+import { Credential } from "@vex/core/credential"
+import { Integration } from "@vex/core/integration"
+import { Location } from "@vex/core/location"
+import { Model } from "@vex/core/model"
+import { Plugin } from "@vex/core/plugin"
+import { PluginHost } from "@vex/core/plugin/host"
+import { PluginHooks } from "@vex/core/plugin/hooks"
+import { GithubCopilotPlugin } from "@vex/core/plugin/provider/github-copilot"
+import { OpenAIPlugin } from "@vex/core/plugin/provider/openai"
+import { Project } from "@vex/core/project"
+import { Provider } from "@vex/core/provider"
+import { AbsolutePath } from "@vex/core/schema"
+import { SessionModelRequest } from "@vex/core/session/model-request"
+import { SessionModelTransport } from "@vex/core/session/model-transport"
+import { SessionRunnerModel } from "@vex/core/session/runner/model"
 import { testEffect } from "../lib/effect"
 import { PluginTestLayer } from "./fixture"
 
@@ -91,7 +91,7 @@ describe("OpenAIPlugin", () => {
       const credentials = yield* Credential.Service
       yield* catalog.transform((catalog) => {
         catalog.update(Provider.ID.openai, (draft) => {
-          draft.package = "@opencode/ai/providers/openai"
+          draft.package = "@vex/ai/providers/openai"
         })
         catalog.models.update(Provider.ID.openai, Model.ID.make("gpt-5.5"), (model) => {
           model.limit = { context: 1_050_000, input: 922_000, output: 128_000 }
@@ -154,7 +154,7 @@ describe("OpenAIPlugin", () => {
       const proxy = yield* request(Provider.ID.openai, "https://proxy.example/v1?region=us")
 
       const provider = required(yield* catalog.get(Provider.ID.openai))
-      expect(provider.package).toBe("@opencode/ai/providers/openai")
+      expect(provider.package).toBe("@vex/ai/providers/openai")
       expect(provider.settings).toMatchObject({ baseURL: "https://chatgpt.com/backend-api/codex" })
       expect(provider.settings?.encoding).toBe("zstd")
       expect(provider.headers).toMatchObject({
@@ -175,7 +175,7 @@ describe("OpenAIPlugin", () => {
       const childRequest = yield* request(Provider.ID.openai, "https://api.openai.com/v1", child.id)
       expect(childRequest.headers).toMatchObject({ "session-id": parent.id })
       const eligible = required(yield* models.get(Provider.ID.openai, Model.ID.make("gpt-5.5")))
-      expect(eligible.package).toBe("@opencode/ai/providers/openai")
+      expect(eligible.package).toBe("@vex/ai/providers/openai")
       expect(eligible.headers).toMatchObject({ originator: "opencode", "chatgpt-account-id": "acct_123" })
       expect(eligible.cost).toEqual([])
       expect(eligible.limit).toEqual({ context: 400_000, input: 272_000, output: 128_000 })
@@ -213,7 +213,7 @@ describe("OpenAIPlugin", () => {
       const credentials = yield* Credential.Service
       yield* catalog.transform((catalog) => {
         catalog.update(Provider.ID.openai, (draft) => {
-          draft.package = "@opencode/ai/providers/openai"
+          draft.package = "@vex/ai/providers/openai"
         })
         catalog.models.update(Provider.ID.openai, Model.ID.make("gpt-5.5"), (model) => {
           model.limit = { context: 1_050_000, input: 922_000, output: 128_000 }
@@ -230,7 +230,7 @@ describe("OpenAIPlugin", () => {
 
       const provider = required(yield* catalog.get(Provider.ID.openai))
       const model = required(yield* models.get(Provider.ID.openai, Model.ID.make("gpt-5.5")))
-      expect(model.package).toBe("@opencode/ai/providers/openai")
+      expect(model.package).toBe("@vex/ai/providers/openai")
       expect(model.enabled).toBe(true)
       expect(model.limit).toEqual({ context: 1_050_000, input: 922_000, output: 128_000 })
       expect(provider.settings?.transport).toBe("websocket")

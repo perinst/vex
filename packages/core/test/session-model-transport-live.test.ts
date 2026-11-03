@@ -1,16 +1,16 @@
 import { describe, expect, test } from "bun:test"
-import { AIError, LLM, Message } from "@opencode/ai"
+import { AIError, LLM, Message } from "@vex/ai"
 import {
   LLMClient,
   RequestExecutor,
   WebSocketTransport,
   type ChannelObservation,
   type WebSocketChannelExchange,
-} from "@opencode/ai/route"
-import { configure } from "@opencode/ai/providers/openai"
-import { SessionModelTransport } from "@opencode/core/session/model-transport"
-import { WebSocketConstructor } from "@opencode/core/effect/websocket-constructor"
-import { Session } from "@opencode/schema/session"
+} from "@vex/ai/route"
+import { configure } from "@vex/ai/providers/openai"
+import { SessionModelTransport } from "@vex/core/session/model-transport"
+import { WebSocketConstructor } from "@vex/core/effect/websocket-constructor"
+import { Session } from "@vex/schema/session"
 import { Effect, Fiber, Layer, Stream } from "effect"
 import { Headers } from "effect/http"
 import { Socket } from "effect/socket"

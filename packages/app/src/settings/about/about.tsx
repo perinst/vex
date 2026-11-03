@@ -1,5 +1,5 @@
 import { createResource } from "solid-js"
-import { useDialog } from "@opencode/ui/context/dialog"
+import { useDialog } from "@vex/ui/context/dialog"
 import { useLanguage } from "@/runtime/i18n/language"
 import { usePlatform } from "@/runtime/platform/platform"
 import { ExternalLink } from "@/runtime/platform/external-link"
@@ -97,14 +97,13 @@ export function SettingsAbout(props: { active: boolean }) {
       </div>
 
       <p class="settings-about-faint">
-        <ExternalLink href="https://opencode.ai">
+        <ExternalLink href="https://github.com/perinst/vex">
           <bdi dir="ltr">{language.t("settings.about.website")}</bdi>
         </ExternalLink>
       </p>
 
       <div class="settings-about-details">
         <p>{language.t("settings.about.description")}</p>
-        <p>{language.t("settings.about.trademark")}</p>
         <p>{language.t("settings.about.typeset")}</p>
         <p>
           <button type="button" class="settings-about-link" onClick={() => void showNotices()}>

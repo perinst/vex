@@ -1,4 +1,4 @@
-import tree from "@opencode/ui/file-tree.css?inline"
+import tree from "@vex/ui/file-tree.css?inline"
 import artifact from "./artifact-view.css?inline"
 import mobile from "./mobile.css?inline"
 

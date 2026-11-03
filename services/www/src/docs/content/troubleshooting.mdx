@@ -3,11 +3,11 @@ title: "Troubleshooting"
 ---
 
 <Callout type="tip">
-  You can ask OpenCode to debug itself. Describe the problem and ask it to use this troubleshooting page; it can read
+  You can ask Vex to debug itself. Describe the problem and ask it to use this troubleshooting page; it can read
   the steps below, inspect its service and logs, and help identify the issue.
 </Callout>
 
-OpenCode uses a client-server architecture. A background server owns sessions, plugins, permissions, and other application
+Vex uses a client-server architecture. A background server owns sessions, plugins, permissions, and other application
 state. Start by determining whether an issue is in a client, the shared server, or a specific project.
 
 ## Check the background service
@@ -15,30 +15,30 @@ state. Start by determining whether an issue is in a client, the shared server, 
 Show the current server information:
 
 ```bash
-opencode service status
+vex service status
 ```
 
 Verify that its API is healthy:
 
 ```bash
-opencode api get /api/info
+vex api get /api/info
 ```
 
 If the service is stuck or unhealthy, restart it:
 
 ```bash
-opencode service restart
+vex service restart
 ```
 
 You can also stop and start it explicitly:
 
 ```bash
-opencode service stop
-opencode service start
+vex service stop
+vex service start
 ```
 
 <Callout type="note">
-  OpenCode normally discovers or starts the shared background service automatically. The service commands are only
+  Vex normally discovers or starts the shared background service automatically. The service commands are only
   needed when diagnosing its lifecycle.
 </Callout>
 
@@ -47,30 +47,30 @@ opencode service start
 If a browser client on another origin cannot connect because of CORS, add the client's origin to the service configuration:
 
 ```bash
-opencode service set cors http://192.168.1.10:3001
-opencode service get cors
+vex service set cors http://192.168.1.10:3001
+vex service get cors
 ```
 
 Use an exact HTTP or HTTPS origin, including the port when needed, without a path or trailing slash. To allow multiple
 origins, pass a comma-separated list as one argument; whitespace around each origin is trimmed:
 
 ```bash
-opencode service set cors "http://192.168.1.10:3001, https://app.example.com"
+vex service set cors "http://192.168.1.10:3001, https://app.example.com"
 ```
 
 `service get cors` prints a JSON array. Remove the configured list with:
 
 ```bash
-opencode service unset cors
+vex service unset cors
 ```
 
 Setting or unsetting service configuration stops the background service. Its next start picks up the new configuration;
-use `opencode service start` to start it explicitly.
+use `vex service start` to start it explicitly.
 
 For a foreground server, repeat `--cors` for each additional allowed origin:
 
 ```bash
-opencode serve --cors http://192.168.1.10:3001 --cors https://app.example.com
+vex serve --cors http://192.168.1.10:3001 --cors https://app.example.com
 ```
 
 With `serve --service`, supplied `--cors` flags override the persisted list for that process. Without those flags, service
@@ -86,7 +86,7 @@ See the [API reference](/api) for all endpoints and operation IDs.
 Pass a JSON request body with `--data` or `-d`, and add headers with `--header` or `-H`.
 
 <Callout type="warning">
-  Running `opencode api` may start the background service when no compatible healthy service is available.
+  Running `vex api` may start the background service when no compatible healthy service is available.
 </Callout>
 
 ## Read logs
@@ -113,11 +113,11 @@ grep 'run=8fc3b1d5' ~/.local/share/opencode/log/opencode.log
 
 ## Capture CPU and memory profiles
 
-On macOS and Linux, you can signal a running OpenCode process to capture diagnostic data. Get the background server PID
+On macOS and Linux, you can signal a running Vex process to capture diagnostic data. Get the background server PID
 from the health endpoint:
 
 ```bash
-opencode api get /api/info
+vex api get /api/info
 ```
 
 Use the `pid` from the response with one of these signals:
@@ -177,8 +177,8 @@ The database normally lives at:
 
 Include the following when reporting a reproducible problem:
 
-- Output from `opencode --version`
-- Output from `opencode service status`
+- Output from `vex --version`
+- Output from `vex service status`
 - The smallest sequence of steps that reproduces the issue
 - Whether the issue affects the shared service, a specific client, or one project
 - Relevant log lines, including their `run` and `role` fields

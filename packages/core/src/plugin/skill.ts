@@ -2,8 +2,8 @@
 
 export * as SkillPlugin from "./skill.js"
 
-import { define, type Context } from "@opencode/plugin/effect/plugin"
-import { Document } from "@opencode/schema/config"
+import { define, type Context } from "@vex/plugin/effect/plugin"
+import { Document } from "@vex/schema/config"
 import { Effect } from "effect"
 import { AbsolutePath } from "../schema.js"
 import { Skill } from "../skill.js"

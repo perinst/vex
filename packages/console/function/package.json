@@ -1,5 +1,5 @@
 {
-  "name": "@opencode/console-function",
+  "name": "@vex/console-function",
   "version": "2.0.28",
   "$schema": "https://json.schemastore.org/package.json",
   "private": true,
@@ -17,6 +17,6 @@
     "@typescript/native-preview": "catalog:"
   },
   "dependencies": {
-    "@opencode/console-resource": "workspace:*"
+    "@vex/console-resource": "workspace:*"
   }
 }

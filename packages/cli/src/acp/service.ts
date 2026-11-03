@@ -1,9 +1,9 @@
-import type { OpenCodeClient } from "@opencode/client/effect"
-import { SessionsCursor } from "@opencode/protocol/groups/session"
-import { AbsolutePath } from "@opencode/schema/schema"
-import { FSUtil } from "@opencode/util/fs-util"
+import type { OpenCodeClient } from "@vex/client/effect"
+import { SessionsCursor } from "@vex/protocol/groups/session"
+import { AbsolutePath } from "@vex/schema/schema"
+import { FSUtil } from "@vex/util/fs-util"
 import { DateTime, Effect, Ref, Schema } from "effect"
-import { withTimestampedFallback } from "@opencode/util/session-title-fallback"
+import { withTimestampedFallback } from "@vex/util/session-title-fallback"
 import type {
   AuthenticateRequest,
   AuthenticateResponse,
@@ -41,6 +41,7 @@ import { configOptions, resolveChange } from "./config-option"
 import type { ACPConnection } from "./connection"
 import { ACPDirectories } from "./directories"
 import { ACPError } from "./error"
+import { CLI_NAME } from "../cli-name"
 import { ACPReplay } from "./replay"
 import type { ACPSessions, Attached, SupportedMcpServer } from "./sessions"
 import type { ACPTurn } from "./turn"
@@ -106,14 +107,14 @@ export function make(input: {
     initialize: Effect.fnUntraced(function* (params) {
       yield* Ref.set(input.capabilities, ACPCapabilities.parse(params.clientCapabilities))
       const authMethod: AuthMethod = {
-        description: "Run `opencode auth login` in the terminal",
-        name: "Login with opencode",
+        description: `Run \`${CLI_NAME} auth login\` in the terminal`,
+        name: "Login with Vex",
         id: AuthMethodID,
         ...(params.clientCapabilities?.auth?.terminal ? { type: "terminal" as const, args: ["--login"] } : {}),
       }
       if (params.clientCapabilities?._meta?.["terminal-auth"] === true) {
         authMethod._meta = {
-          "terminal-auth": { command: "opencode", args: ["auth", "login"], label: "OpenCode Login" },
+          "terminal-auth": { command: CLI_NAME, args: ["auth", "login"], label: "Vex Login" },
         }
       }
       return {

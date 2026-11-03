@@ -1,15 +1,15 @@
 export * as ModelResolver from "./model-resolver.js"
 
-import { makeLocationNode } from "@opencode/util/effect/app-node"
-import { HttpOptions, LanguageModel, mergeHttpOptions, ProviderConfigurationError } from "@opencode/ai"
-import { Auth } from "@opencode/ai/route"
+import { makeLocationNode } from "@vex/util/effect/app-node"
+import { HttpOptions, LanguageModel, mergeHttpOptions, ProviderConfigurationError } from "@vex/ai"
+import { Auth } from "@vex/ai/route"
 import { Context, Effect, Layer, Schema, Struct } from "effect"
 import { AISDK } from "./aisdk.js"
 import { Credential } from "./credential.js"
 import { Integration } from "./integration.js"
 import { Capabilities, ID, Info, Model, Ref, VariantID } from "./model.js"
 import type { RuntimeInfo } from "./model.js"
-import { Npm } from "@opencode/util/npm"
+import { Npm } from "@vex/util/npm"
 import { Provider } from "./provider.js"
 
 export class VariantUnavailableError extends Schema.TaggedError<VariantUnavailableError>()(
@@ -310,7 +310,7 @@ const nativeCredentialSettings = (model: RuntimeInfo, specifier: string, credent
   if (credential.type === "key") return { apiKey: credential.key }
   if (credential.type === "oauth") return tokenSettings(specifier, credential.access)
   // The saved profile reaches the package through metadata; SigV4 keeps an ambient bearer token from taking over.
-  if (specifier.startsWith("@opencode/ai/providers/amazon-bedrock")) return { auth: "sigv4" }
+  if (specifier.startsWith("@vex/ai/providers/amazon-bedrock")) return { auth: "sigv4" }
   // The Azure plugin's request hooks replace this with an Entra ID token from the Azure CLI; it only gets the
   // request past the package's own credential check.
   if (model.providerID === Provider.ID.azure) return tokenSettings(specifier, "azure-cli")
@@ -318,11 +318,11 @@ const nativeCredentialSettings = (model: RuntimeInfo, specifier: string, credent
 }
 
 const tokenSettings = (specifier: string, token: string) => {
-  if (specifier === "@opencode/ai/providers/anthropic" || specifier === "@opencode/ai/providers/anthropic-compatible")
+  if (specifier === "@vex/ai/providers/anthropic" || specifier === "@vex/ai/providers/anthropic-compatible")
     return { authToken: token }
   if (
-    specifier === "@opencode/ai/providers/google-vertex" ||
-    specifier.startsWith("@opencode/ai/providers/google-vertex/")
+    specifier === "@vex/ai/providers/google-vertex" ||
+    specifier.startsWith("@vex/ai/providers/google-vertex/")
   )
     return { accessToken: token }
   return { apiKey: token }
@@ -452,28 +452,28 @@ function usesAPIKeyAuth(packageName: string | undefined) {
     name === "@ai-sdk/xai" ||
     name === "@openrouter/ai-sdk-provider" ||
     name === "@ai-sdk/azure" ||
-    name === "@opencode/ai/providers/openai" ||
-    name?.startsWith("@opencode/ai/providers/openai/") === true ||
-    name === "@opencode/ai/providers/anthropic" ||
-    name === "@opencode/ai/providers/anthropic-compatible" ||
-    name === "@opencode/ai/providers/baseten" ||
-    name === "@opencode/ai/providers/cerebras" ||
-    name === "@opencode/ai/providers/cloudflare-ai-gateway" ||
-    name === "@opencode/ai/providers/cloudflare-workers-ai" ||
-    name === "@opencode/ai/providers/deepinfra" ||
-    name === "@opencode/ai/providers/deepseek" ||
-    name === "@opencode/ai/providers/fireworks" ||
-    name === "@opencode/ai/providers/openai-compatible" ||
-    name === "@opencode/ai/providers/google" ||
-    name === "@opencode/ai/providers/google/interactions" ||
-    name === "@opencode/ai/providers/groq" ||
-    name === "@opencode/ai/providers/mistral" ||
-    name === "@opencode/ai/providers/togetherai" ||
-    name === "@opencode/ai/providers/vercel-ai-gateway" ||
-    name === "@opencode/ai/providers/xai" ||
-    name === "@opencode/ai/providers/openrouter" ||
-    name === "@opencode/ai/providers/azure" ||
-    name?.startsWith("@opencode/ai/providers/azure/") === true
+    name === "@vex/ai/providers/openai" ||
+    name?.startsWith("@vex/ai/providers/openai/") === true ||
+    name === "@vex/ai/providers/anthropic" ||
+    name === "@vex/ai/providers/anthropic-compatible" ||
+    name === "@vex/ai/providers/baseten" ||
+    name === "@vex/ai/providers/cerebras" ||
+    name === "@vex/ai/providers/cloudflare-ai-gateway" ||
+    name === "@vex/ai/providers/cloudflare-workers-ai" ||
+    name === "@vex/ai/providers/deepinfra" ||
+    name === "@vex/ai/providers/deepseek" ||
+    name === "@vex/ai/providers/fireworks" ||
+    name === "@vex/ai/providers/openai-compatible" ||
+    name === "@vex/ai/providers/google" ||
+    name === "@vex/ai/providers/google/interactions" ||
+    name === "@vex/ai/providers/groq" ||
+    name === "@vex/ai/providers/mistral" ||
+    name === "@vex/ai/providers/togetherai" ||
+    name === "@vex/ai/providers/vercel-ai-gateway" ||
+    name === "@vex/ai/providers/xai" ||
+    name === "@vex/ai/providers/openrouter" ||
+    name === "@vex/ai/providers/azure" ||
+    name?.startsWith("@vex/ai/providers/azure/") === true
   )
 }
 

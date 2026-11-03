@@ -15,7 +15,7 @@
   node_modules ? callPackage ./node_modules.nix { },
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
-  pname = "opencode";
+  pname = "vex";
   inherit (node_modules) version src;
   inherit node_modules;
 
@@ -80,6 +80,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
       ''}
 
     ln -s opencode $out/bin/opencode2
+    makeWrapper $out/bin/opencode $out/bin/vex --set VEX_CLI_ENTRY 1
 
     runHook postInstall
   '';
@@ -92,10 +93,19 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     $out/bin/opencode --completions zsh > _opencode
     $out/bin/opencode --completions fish > opencode.fish
 
+    VEX_CLI_ENTRY=1 $out/bin/opencode --completions bash > vex.bash
+    VEX_CLI_ENTRY=1 $out/bin/opencode --completions zsh > _vex
+    VEX_CLI_ENTRY=1 $out/bin/opencode --completions fish > vex.fish
+
     installShellCompletion --cmd opencode \
       --bash opencode.bash \
       --fish opencode.fish \
       --zsh _opencode
+
+    installShellCompletion --cmd vex \
+      --bash vex.bash \
+      --fish vex.fish \
+      --zsh _vex
 
     # OPENCODE_CLI_NAME is a build-time define, so the opencode2 copies are
     # renamed rather than regenerated. --replace-fail is a global literal
@@ -124,10 +134,10 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   };
 
   meta = {
-    description = "The open source coding agent";
-    homepage = "https://opencode.ai";
+    description = "Vex, the open source coding agent";
+    homepage = "https://github.com/perinst/vex";
     license = lib.licenses.mit;
-    mainProgram = "opencode";
+    mainProgram = "vex";
     inherit (node_modules.meta) platforms;
   };
 })

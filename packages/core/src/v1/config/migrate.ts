@@ -1,6 +1,6 @@
 export * as ConfigMigrateV1 from "./migrate.js"
 
-import { ConfigAgent } from "@opencode/schema/config/agent"
+import { ConfigAgent } from "@vex/schema/config/agent"
 import { Schema } from "effect"
 import { ConfigAgentV1 } from "./agent.js"
 import { ConfigCommandV1 } from "./command.js"

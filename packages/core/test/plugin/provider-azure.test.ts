@@ -1,22 +1,22 @@
 import { chmod } from "node:fs/promises"
-import { Agent } from "@opencode/core/agent"
+import { Agent } from "@vex/core/agent"
 import { describe, expect } from "bun:test"
 import { Effect, Schedule, Schema } from "effect"
-import { Config } from "@opencode/core/config"
-import { ConfigProviderPlugin } from "@opencode/core/config/plugin/provider"
-import { Bus } from "@opencode/core/bus"
-import { Credential } from "@opencode/core/credential"
-import { Model } from "@opencode/core/model"
-import { Plugin } from "@opencode/core/plugin"
-import { PluginHost } from "@opencode/core/plugin/host"
-import { PluginHooks } from "@opencode/core/plugin/hooks"
-import { make } from "@opencode/core/plugin/provider/azure"
-import { Provider } from "@opencode/core/provider"
-import { Integration } from "@opencode/core/integration"
-import { Location } from "@opencode/core/location"
-import { Session } from "@opencode/core/session"
-import { Document, Info } from "@opencode/schema/config"
-import { AppProcess } from "@opencode/util/process"
+import { Config } from "@vex/core/config"
+import { ConfigProviderPlugin } from "@vex/core/config/plugin/provider"
+import { Bus } from "@vex/core/bus"
+import { Credential } from "@vex/core/credential"
+import { Model } from "@vex/core/model"
+import { Plugin } from "@vex/core/plugin"
+import { PluginHost } from "@vex/core/plugin/host"
+import { PluginHooks } from "@vex/core/plugin/hooks"
+import { make } from "@vex/core/plugin/provider/azure"
+import { Provider } from "@vex/core/provider"
+import { Integration } from "@vex/core/integration"
+import { Location } from "@vex/core/location"
+import { Session } from "@vex/core/session"
+import { Document, Info } from "@vex/schema/config"
+import { AppProcess } from "@vex/util/process"
 import { testEffect } from "../lib/effect"
 import { PluginTestLayer } from "./fixture"
 
@@ -180,7 +180,7 @@ const seedProvider = (settings?: Provider.Settings) =>
     const catalog = yield* Provider.Service
     yield* catalog.transform((editor) => {
       editor.update(Provider.ID.azure, (provider) => {
-        provider.package = "@opencode/ai/providers/azure/responses"
+        provider.package = "@vex/ai/providers/azure/responses"
         if (settings) provider.settings = settings
       })
     })
@@ -201,7 +201,7 @@ const seedCatalog = Effect.gen(function* () {
     })
     editor.models.update(Provider.ID.azure, Model.ID.make("deepseek-v4-flash"), (model) => {
       model.name = "DeepSeek-V4-Flash"
-      model.package = "@opencode/ai/providers/openai-compatible"
+      model.package = "@vex/ai/providers/openai-compatible"
       model.settings = { baseURL: "https://${AZURE_RESOURCE_NAME}.services.ai.azure.com/models" }
     })
   })
@@ -651,14 +651,14 @@ describe("AzurePlugin resource name", () => {
       const models = yield* Model.Service
       yield* providers.transform((editor) => {
         editor.update(Provider.ID.azure, (provider) => {
-          provider.package = "@opencode/ai/providers/openai-compatible"
+          provider.package = "@vex/ai/providers/openai-compatible"
           provider.activation = "enabled"
           provider.settings = {
             baseURL: "https://${AZURE_COGNITIVE_SERVICES_RESOURCE_NAME}.cognitiveservices.azure.com/openai",
           }
         })
         editor.models.update(Provider.ID.azure, Model.ID.make("anthropic"), (model) => {
-          model.package = "@opencode/ai/providers/anthropic"
+          model.package = "@vex/ai/providers/anthropic"
           model.settings = {
             resourceName: "model-resource",
             baseURL: "https://${AZURE_RESOURCE_NAME}.services.ai.azure.com/anthropic/v1",
@@ -688,7 +688,7 @@ describe("AzurePlugin transport", () => {
       const variants: Record<string, (model: Model.MutableInfo) => void> = {
         responses: () => {},
         chat: (model) => {
-          model.package = "@opencode/ai/providers/azure/chat"
+          model.package = "@vex/ai/providers/azure/chat"
         },
         preview: (model) => {
           model.settings = { apiVersion: "2025-04-01-preview" }
@@ -700,12 +700,12 @@ describe("AzurePlugin transport", () => {
           model.settings = { baseURL: "https://gateway.example/azure" }
         },
         "non-azure": (model) => {
-          model.package = "@opencode/ai/providers/anthropic"
+          model.package = "@vex/ai/providers/anthropic"
         },
       }
       yield* providers.transform((editor) => {
         editor.update(Provider.ID.azure, (provider) => {
-          provider.package = "@opencode/ai/providers/azure/responses"
+          provider.package = "@vex/ai/providers/azure/responses"
           provider.activation = "enabled"
         })
         Object.entries(variants).forEach(([id, update]) =>

@@ -1,4 +1,4 @@
-import { Global } from "@opencode/util/global"
+import { Global } from "@vex/util/global"
 import { Effect, Queue } from "effect"
 import path from "node:path"
 

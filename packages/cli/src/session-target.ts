@@ -1,5 +1,5 @@
-import type { LocationGetOutput, ModelRef, OpenCodeClient, SessionInfo } from "@opencode/client/promise"
-import { Model } from "@opencode/schema/model"
+import type { LocationGetOutput, ModelRef, OpenCodeClient, SessionInfo } from "@vex/client/promise"
+import { Model } from "@vex/schema/model"
 import { errorMessage } from "./util/error"
 
 const SESSION_PAGE_LIMIT = 50

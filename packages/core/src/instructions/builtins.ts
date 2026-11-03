@@ -1,8 +1,8 @@
 export * as InstructionBuiltIns from "./builtins.js"
 
-import { makeLocationNode } from "@opencode/util/effect/app-node"
+import { makeLocationNode } from "@vex/util/effect/app-node"
 import { Context, DateTime, Effect, Layer, Schema } from "effect"
-import { Global } from "@opencode/util/global"
+import { Global } from "@vex/util/global"
 import { Location } from "../location.js"
 import { Instructions } from "./index.js"
 

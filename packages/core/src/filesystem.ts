@@ -1,14 +1,14 @@
 export * as FileSystem from "./filesystem.js"
 
-import { makeLocationNode } from "@opencode/util/effect/app-node"
+import { makeLocationNode } from "@vex/util/effect/app-node"
 import path from "path"
 import { Context, Effect, Layer, type Option, type PlatformError, Schema, type Stream } from "effect"
-import { FSUtil } from "@opencode/util/fs-util"
+import { FSUtil } from "@vex/util/fs-util"
 import { Location } from "./location.js"
 import { AbsolutePath, PositiveInt, RelativePath } from "./schema.js"
 import { FileSystemSearch } from "./filesystem/search.js"
-import { Entry, FileSystem, FindInput, Write } from "@opencode/schema/filesystem"
-export { Entry, Match, Submatch } from "@opencode/schema/filesystem"
+import { Entry, FileSystem, FindInput, Write } from "@vex/schema/filesystem"
+export { Entry, Match, Submatch } from "@vex/schema/filesystem"
 
 export const ReadInput = Schema.Struct({
   path: RelativePath,
