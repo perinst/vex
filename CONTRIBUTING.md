@@ -75,9 +75,9 @@ Follow the repository [style guide](./AGENTS.md).
 
 ## Pull Requests
 
-### Link Issues When Required
+### Issue References
 
-Bug fixes, chores, and tests must reference an existing issue. Documentation, refactor, and feature PRs are exempt from the automated linked-issue check. When required, use `Fixes #123` or `Closes #123` in the PR description.
+Link a related issue with `Fixes #123` or `Closes #123` when it helps provide context. Issue references are optional for all PRs.
 
 Before implementing new functionality, open a feature request describing the problem, why it belongs in <PRJ>, and your proposed approach if you have one. Wait for design approval before opening the implementation PR.
 
