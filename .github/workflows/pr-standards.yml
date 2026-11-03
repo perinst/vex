@@ -83,6 +83,8 @@ jobs:
               });
             }
 
+            await removeLabel('needs:issue');
+
             // Check title is non-empty and follows the conventional format.
             // Matches: feat:, feat(scope):, feat (scope):, etc.
             if (!title.trim()) {
@@ -115,7 +117,6 @@ jobs:
             }
 
             await removeLabel('needs:title');
-            await removeLabel('needs:issue');
             console.log('PR meets all standards');
 
   check-compliance:
