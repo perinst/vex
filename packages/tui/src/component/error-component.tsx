@@ -14,8 +14,7 @@ export function ErrorComponent(props: { error: Error; reset: () => void; mode?: 
   const app = useTuiApp()
   const [copyState, setCopyState] = createSignal<"idle" | "copied" | "failed">("idle")
 
-  // Safe fallback palette per mode (mirrors theme/assets/opencode.json) since the
-  // theme context may be the thing that crashed.
+  // Keep a safe fallback palette available if the theme context itself crashes.
   const isLight = props.mode === "light"
   const colors = isLight
     ? {
@@ -30,13 +29,13 @@ export function ErrorComponent(props: { error: Error; reset: () => void; mode?: 
         success: "#3d9a57",
       }
     : {
-        bg: "#0a0a0a",
-        element: "#1e1e1e",
-        borderSubtle: "#3c3c3c",
-        text: "#eeeeee",
-        muted: "#808080",
-        primary: "#fab283",
-        onPrimary: "#0a0a0a",
+        bg: "#111113",
+        element: "#1c1c1f",
+        borderSubtle: "#34343a",
+        text: "#e4e4e7",
+        muted: "#92929d",
+        primary: "#8ab4f8",
+        onPrimary: "#111113",
         error: "#e06c75",
         success: "#7fd88f",
       }
